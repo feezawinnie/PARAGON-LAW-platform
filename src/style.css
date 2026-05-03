@@ -1,1 +1,16 @@
 @import "tailwindcss";
+
+#page-transition {
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease-out;
+}
+
+#page-transition.leaving {
+  opacity: 1;
+  pointer-events: all;
+}

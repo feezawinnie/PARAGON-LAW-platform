@@ -3,129 +3,170 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>about page</title>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <title>paragon-law</title>
   </head>
-  <body class="bg-[#0b2230] text-white">
+
+  <body class="bg-white text-[#0b2230]">
     <div id="page-transition"></div>
     <div id="app">
+      <!-- NAVIGATION BAR -->
       <header
         class="flex items-center justify-between px-10 py-8 border-b border-[#D1704D]"
       >
-        <div class="text-[#FFFFFF] font-semibold">PARAGON LAW</div>
+        <div class="text-[#D1704D] font-semibold">PARAGON LAW</div>
 
-        <nav class="space-x-8 hidden md:block cursor-pointer font-semibold">
-          <a href="/" class="hover:text-[#D1704D]">HOME</a>
-          <a href="/about.html" class="text-[#D1704D]">ABOUT</a>
-          <a href="/practice-areas.html" class="hover:text-[#D1704D]"
+        <nav class="space-x-8 hidden md:block text-semibold">
+          <a href="/index2.html" class="text-[#D1704D]">HOME</a>
+          <a href="/about2.html" class="hover:text-[#D1704D] cursor-pointer"
+            >ABOUT</a
+          >
+          <a
+            href="/practice-areas2.html"
+            class="hover:text-[#D1704D] cursor-pointer"
             >PRACTICE AREAS</a
           >
         </nav>
-        <a
-          href="/contact.html"
-          class="text-[#D1704D] border border-[#D1704D] px-4 py-2"
-        >
-          GET IN TOUCH →
-        </a>
-        <button id="menu-btn" class="md:hidden text-[#D1704D]">
-          <i id="icon-menu" data-lucide="menu" class="w-8 h-8"></i>
-        </button>
+
+        <div class="flex items-center gap-4">
+          <a
+            href="/contact2.html"
+            class="border border-[#D1704D] px-4 py-2 text-[#D1704D]"
+          >
+            GET IN TOUCH →
+          </a>
+          <button id="menu-btn" class="md:hidden text-[#D1704D]">
+            <i id="icon-menu" data-lucide="menu" class="w-8 h-8"></i>
+          </button>
+        </div>
       </header>
+
       <!-- mobile menu -->
       <div
         id="mobile-menu"
-        class="hidden flex-col bg-[#0b2230] border-b border-[#D1704D] py-4 space-y-4 md:hidden"
+        class="hidden flex-col bg-[white]/20 border-b border-[#D1704D] py-4 space-y-4 md:hidden"
       >
-        <a href="/index.html" class="text-[#D1704D]">HOME</a>
-        <a href="/about.html" class="text-white hover:text-[#D1704D] block"
+        <a href="/index2.html" class="text-[#D1704D]">HOME</a>
+        <a
+          href="/about2.html"
+          class="hover:text-[#D1704D] text-[#0b2230]/60 block"
           >ABOUT</a
         >
         <a
-          href="/practice-areas.html"
-          class="text-white hover:text-[#D1704D] block"
+          href="/practice-areas2.html"
+          class="hover:text-[#D1704D] text-[#0b2230]/60 block"
           >PRACTICE AREAS</a
         >
       </div>
 
-      <!-- ABOUT CONTENT -->
-      <section class="relative min-h[320px] items-center">
-        <div>
-          <div>
-            <img
-              src="/src/assets/land-image.jpg"
-              alt="landscape-image"
-              class="w-full h-75 object-cover opacity-20"
-            />
-            <div
-              class="absolute inset-0 top-0 left-0 w-full h-75"
-              style="
-                background: linear-gradient(
-                  to right,
-                  #0b2230 0%,
-                  rgba(11, 34, 48, 0.6) 30%,
-                  rgba(11, 34, 48, 0.1) 100%
-                );
-              "
-            ></div>
+      <!-- HERO SECTION-->
+      <section
+        class="relative min-h-[85vh] flex items-center px-10 py-20 overflow-hidden bg-white"
+      >
+        <!-- RIGHT ARTPIECE-->
+        <div class="hidden md:block absolute top-0 right-0 w-[55%] h-full">
+          <img
+            src="/src/assets/paragon-img.jpg"
+            class="w-full h-full opacity-40"
+            style="display: block"
+          />
+          <div
+            class="absolute"
+            style="
+              background: linear-gradient(
+                to right,
+                #ffffff 0%,
+                rgba(255, 255, 255, 0.6) 40%,
+                rgba(255, 255, 255, 0.1) 100%
+              );
+            "
+          ></div>
+        </div>
+
+        <!-- LEFT WORDS -->
+        <div class="relative z-10 flex flex-col justify-center max-w-3xl">
+          <p class="text-[#D1704D] tracking-widest text-sm mb-4">
+            PARAGON LAW — KIGALI, RWANDA
+          </p>
+
+          <h1
+            class="text-5xl md:text-7xl font-bold leading-tight text-[#0b2230]"
+          >
+            WELCOME TO <br />
+            <span class="text-[#D1704D]">PARAGON LAW</span>
+          </h1>
+
+          <p class="mt-6 text-2xl text-[#4a6070] max-w-md">
+            We deliver tailored legal solutions to meet your legal needs and
+            support your business success.
+          </p>
+
+          <button
+            class="mt-8 border-2 border-[#D1704D] px-6 py-3 text-[#D1704D] w-fit hover:bg-[#0b2230] hover:text-white transition-colors"
+          >
+            LEARN MORE
+          </button>
+        </div>
+      </section>
+
+      <!-- PRACTICE AREAS -->
+      <section class="bg-white px-10 py-20 border border-[#D1704D]">
+        <p class="text-[#D1704D] tracking-widest text-xs mb-2">OUR EXPERTISE</p>
+        <h2 class="text-4xl font-bold">Practice Areas</h2>
+        <div class="w-15 h-0.75 bg-[#D1704D] mt-3 mb-12"></div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-12">
+          <div
+            class="border px-5 py-4 flex items-center gap-4 text-sm border-[#D1704D]/60 bg-[#D1704D]/5 hover:bg-[#0b2230]/10 transition-all cursor-pointer"
+          >
+            <span class="text-[#D1704D] text-xs font-bold">01</span> Corporate
+            &amp; Commercial
+          </div>
+          <div
+            class="border px-5 py-4 flex items-center gap-4 text-sm border-[#D1704D]/60 bg-[#D1704D]/5 hover:bg-[#0b2230]/10 transition-all cursor-pointer"
+          >
+            <span class="text-[#D1704D] text-xs font-bold">02</span> Banking
+            &amp; Finance
+          </div>
+          <div
+            class="border px-5 py-4 flex items-center gap-4 text-sm border-[#D1704D]/60 bg-[#D1704D]/5 hover:bg-[#0b2230]/10 transition-all cursor-pointer"
+          >
+            <span class="text-[#D1704D] text-xs font-bold">03</span> Telecom,
+            Media and Technologies (TMT)
+          </div>
+          <div
+            class="border px-5 py-4 flex items-center gap-4 text-sm border-[#D1704D]/60 bg-[#D1704D]/5 hover:bg-[#0b2230]/10 transition-all cursor-pointer"
+          >
+            <span class="text-[#D1704D] text-xs font-bold">04</span> Legal Due
+            Diligence
+          </div>
+          <div
+            class="border px-5 py-4 flex items-center gap-4 text-sm border-[#D1704D]/60 bg-[#D1704D]/5 hover:bg-[#0b2230]/10 transition-all cursor-pointer"
+          >
+            <span class="text-[#D1704D] text-xs font-bold">05</span>
+            Labour/Employment
+          </div>
+          <div
+            class="border px-5 py-4 flex items-center gap-4 text-sm border-[#D1704D]/60 bg-[#D1704D]/5 hover:bg-[#0b2230]/10 transition-all cursor-pointer"
+          >
+            <span class="text-[#D1704D] text-xs font-bold">06</span> Commercial
+            Litigation and Commercial Arbitration
+          </div>
+          <div
+            class="border px-5 py-4 flex items-center gap-4 text-sm border-[#D1704D]/60 bg-[#D1704D]/5 hover:bg-[#0b2230]/10 transition-all cursor-pointer"
+          >
+            <span class="text-[#D1704D] text-xs font-bold">07</span> Taxation
           </div>
         </div>
-      </section>
-      <section
-        class="bg-[#0b2230] px-12 py-20 flex flex-col md:flex-row gap-20"
-      >
-        <!-- Left -->
-        <div class="md:w-[45%] shrink-0">
-          <p class="text-[#6b8a99] text-xs tracking-[0.2em] uppercase mb-8">
-            ABOUT PARAGON LAW
-          </p>
-          <h1 class="font-display text-6xl font-normal leading-tight mb-6">
-            Who we are
-          </h1>
-          <div class="w-14 h-0.5 bg-[#D1704D]"></div>
-        </div>
 
-        <!-- Right -->
-        <div
-          class="md:w-[55%] flex flex-col justify-center gap-6 text-[#8a9eaa] text-sm leading-7"
-        >
-          <p>
-            Paragon Law is a boutique law firm providing top quality and
-            specialized legal services to clients across all sectors of the
-            economy.
-          </p>
-          <p>
-            Our expertise covers Corporate and Commercial matters, Banking and
-            Finance, Legal Due Diligence, Taxation, Labour/Employment,
-            Telecommunications, Media and Technologies (TMT), commercial
-            litigations and commercial arbitration.
-          </p>
-        </div>
-      </section>
-
-      <!-- ===== VISION & MISSION ===== -->
-      <section class="bg-[#0b2230] px-12 pb-24 flex flex-col md:flex-row gap-0">
-        <!-- Vision -->
-        <div class="md:w-1/2 border-l-[3px] border-[#D1704D] pl-10 pr-16 py-6">
-          <h2 class="font-display text-3xl font-normal text-white mb-5">
-            Our Vision
-          </h2>
-          <p class="text-[#8a9eaa] text-sm leading-7">
-            Our vision is to be the most preferred law firm for commercially
-            viable solutions to clients both locally and internationally.
-          </p>
-        </div>
-
-        <!-- Mission -->
-        <div
-          class="md:w-1/2 border-l-[3px] border-[#D1704D] pl-10 pr-16 py-6 mt-10 md:mt-0"
-        >
-          <h2 class="font-display text-3xl font-normal text-white mb-5">
-            Our Mission
-          </h2>
-          <p class="text-[#8a9eaa] text-sm leading-7">
-            Our mission is to provide efficient, timely, and diligent legal
-            solutions to our clients, ensuring that their transactional needs
-            are met promptly and effectively.
-          </p>
+        <div class="text-center">
+          <a
+            href="/practice-areas.html"
+            class="border border-[#D1704D] text-[#D1704D] px-10 py-4 text-xs tracking-widest font-bold hover:bg-[#D1704D] hover:text-white transition-colors"
+          >
+            VIEW PRACTICE AREAS
+          </a>
         </div>
       </section>
 
@@ -282,8 +323,8 @@
         </div>
       </footer>
     </div>
+
     <script type="module" src="/src/main.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
     <script>
       lucide.createIcons();
     </script>
