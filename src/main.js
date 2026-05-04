@@ -1,59 +1,97 @@
 import "./style.css";
 
+// ── Restore theme before paint (prevents flash) ──
+const saved = localStorage.getItem("theme");
+if (saved === "light") {
+  document.documentElement.classList.remove("dark");
+} else {
+  document.documentElement.classList.add("dark"); // default to dark
+}
+
+// ── Sync icon + label to match current theme ──
+function syncThemeUI() {
+  const isDark = document.documentElement.classList.contains("dark");
+
+  const icon = document.getElementById("theme-icon");
+  const iconMobile = document.getElementById("theme-icon-mobile");
+  const label = document.getElementById("theme-label-mobile");
+
+  if (icon) icon.setAttribute("data-lucide", isDark ? "sun" : "moon");
+  if (iconMobile)
+    iconMobile.setAttribute("data-lucide", isDark ? "sun" : "moon");
+  if (label) label.textContent = isDark ? "LIGHT MODE" : "DARK MODE";
+
+  lucide.createIcons();
+}
+
+// ── Toggle button ──
+window.toggleTheme = function () {
+  const isDark = document.documentElement.classList.toggle("dark");
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+  syncThemeUI();
+};
+
 document.addEventListener("DOMContentLoaded", function () {
   // ── Mobile menu ──
   const menuBtn = document.getElementById("menu-btn");
   const menu = document.getElementById("mobile-menu");
 
-  menuBtn.addEventListener("click", function (e) {
-    e.stopPropagation();
-    const isOpen = !menu.classList.contains("hidden");
+  if (menuBtn) {
+    menuBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      const isOpen = !menu.classList.contains("hidden");
 
-    if (isOpen) {
+      if (isOpen) {
+        menu.classList.add("hidden");
+        menu.classList.remove("flex");
+      } else {
+        menu.classList.remove("hidden");
+        menu.classList.add("flex");
+      }
+    });
+
+    document.addEventListener("click", function () {
       menu.classList.add("hidden");
       menu.classList.remove("flex");
-    } else {
-      menu.classList.remove("hidden");
-      menu.classList.add("flex");
-    }
-  });
-
-  document.addEventListener("click", function () {
-    menu.classList.add("hidden");
-    menu.classList.remove("flex");
-  });
+    });
+  }
 
   // ── Page transitions ──
   const overlay = document.getElementById("page-transition");
 
-  // Fade in when page loads
-  overlay.style.opacity = "1";
-  overlay.style.transition = "none";
-  requestAnimationFrame(function () {
+  if (overlay) {
+    // Fade in when page loads
+    overlay.style.opacity = "1";
+    overlay.style.transition = "none";
     requestAnimationFrame(function () {
-      overlay.style.transition = "opacity 0.35s ease";
-      overlay.style.opacity = "0";
+      requestAnimationFrame(function () {
+        overlay.style.transition = "opacity 0.35s ease";
+        overlay.style.opacity = "0";
+      });
     });
-  });
 
-  // Fade out before navigating to another page
-  document.querySelectorAll("a[href]").forEach(function (link) {
-    link.addEventListener("click", function (e) {
-      var href = link.getAttribute("href");
-      if (
-        !href ||
-        href === "#" ||
-        href.startsWith("mailto") ||
-        href.startsWith("tel")
-      )
-        return;
-      e.preventDefault();
-      overlay.classList.add("leaving");
-      setTimeout(function () {
-        window.location.href = href;
-      }, 350);
+    // Fade out before navigating
+    document.querySelectorAll("a[href]").forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        var href = link.getAttribute("href");
+        if (
+          !href ||
+          href === "#" ||
+          href.startsWith("mailto") ||
+          href.startsWith("tel")
+        )
+          return;
+        e.preventDefault();
+        overlay.classList.add("leaving");
+        setTimeout(function () {
+          window.location.href = href;
+        }, 350);
+      });
     });
-  });
+  }
+
+  // ── Sync theme icons on load ──
+  syncThemeUI();
 
   // ── Form submission ──
   const submitBtn = document.getElementById("submit-btn");
@@ -64,7 +102,6 @@ document.addEventListener("DOMContentLoaded", function () {
       var subject = document.getElementById("f-subject");
       var message = document.getElementById("f-message");
 
-      // Reset all errors and success message
       ["name", "email", "subject", "message"].forEach(function (f) {
         document.getElementById("err-" + f).classList.add("hidden");
         document.getElementById("f-" + f).classList.remove("border-red-400");
@@ -106,7 +143,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (!ok) return;
 
-      // All fields valid — show success and reset
       document.getElementById("success-msg").classList.remove("hidden");
       name.value = "";
       email.value = "";

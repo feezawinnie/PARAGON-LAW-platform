@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>about page</title>
   </head>
-  <body class="bg-[#0b2230] text-white">
+  <body class="bg-white text-[#0b2230] dark:bg-[#0b2230] dark:text-white transition-colors duration-300">
     <div id="page-transition"></div>
     <div id="app">
       <header
         class="flex items-center justify-between px-10 py-8 border-b border-[#D1704D]"
       >
-        <div class="text-[#FFFFFF] font-semibold">PARAGON LAW</div>
+        <div class="text-[#D1704D] dark:text-[#FFFFFF] font-semibold">PARAGON LAW</div>
 
         <nav class="space-x-8 hidden md:block cursor-pointer font-semibold">
           <a href="index.html" class="hover:text-[#D1704D]">HOME</a>
@@ -20,28 +20,38 @@
             >PRACTICE AREAS</a
           >
         </nav>
-        <a
-          href="contact.html"
-          class="text-[#D1704D] border border-[#D1704D] px-4 py-2"
-        >
-          GET IN TOUCH →
-        </a>
-        <button id="menu-btn" class="md:hidden text-[#D1704D]">
-          <i id="icon-menu" data-lucide="menu" class="w-8 h-8"></i>
-        </button>
+
+        <div class="flex items-center gap-4">
+          <a
+            href="contact.html"
+            class="text-[#D1704D] border border-[#D1704D] px-4 py-2"
+          >
+            GET IN TOUCH →
+          </a>
+          <button
+            onclick="toggleTheme()"
+            id="theme-toggle"
+            class="text-[#D1704D] hover:text-[#0b2230] dark:hover:text-white transition-colors"
+          >
+            <i id="theme-icon" data-lucide="sun" class="w-5 h-5"></i>
+          </button>
+          <button id="menu-btn" class="md:hidden text-[#D1704D]">
+            <i id="icon-menu" data-lucide="menu" class="w-8 h-8"></i>
+          </button>
+        </div>
       </header>
       <!-- mobile menu -->
       <div
         id="mobile-menu"
-        class="hidden flex-col bg-[#0b2230] border-b border-[#D1704D] py-4 space-y-4 md:hidden"
+        class="hidden flex-col bg-[white]/20 dark:bg-[#0b2230] border-b border-[#D1704D] py-4 space-y-4 md:hidden"
       >
-        <a href="/index.html" class="text-[#D1704D]">HOME</a>
-        <a href="/about.html" class="text-white hover:text-[#D1704D] block"
+        <a href="index.html" class="text-[#D1704D]">HOME</a>
+        <a href="about.html" class="text-[#0b2230]/60 dark:text-white hover:text-[#D1704D] block"
           >ABOUT</a
         >
         <a
-          href="/practice-areas.html"
-          class="text-white hover:text-[#D1704D] block"
+          href="practice-areas.html"
+          class="text-[#0b2230]/60 dark:text-white hover:text-[#D1704D] block"
           >PRACTICE AREAS</a
         >
       </div>
@@ -56,7 +66,18 @@
               class="w-full h-75 object-cover opacity-20"
             />
             <div
-              class="absolute inset-0 top-0 left-0 w-full h-75"
+              class="absolute inset-0 top-0 left-0 w-full h-75 dark:hidden"
+              style="
+                background: linear-gradient(
+                  to right,
+                  #ffffff 0%,
+                  rgba(255, 255, 255, 0.6) 30%,
+                  rgba(255, 255, 255, 0.1) 100%
+                );
+              "
+            ></div>
+            <div
+              class="absolute inset-0 top-0 left-0 w-full h-75 hidden dark:block"
               style="
                 background: linear-gradient(
                   to right,
@@ -69,12 +90,10 @@
           </div>
         </div>
       </section>
-      <section
-        class="bg-[#0b2230] px-12 py-20 flex flex-col md:flex-row gap-20"
-      >
+      <section class="bg-white dark:bg-[#0b2230] px-12 py-20 flex flex-col md:flex-row gap-20">
         <!-- Left -->
         <div class="md:w-[45%] shrink-0">
-          <p class="text-[#6b8a99] text-xs tracking-[0.2em] uppercase mb-8">
+          <p class="text-[#0b2230]/50 dark:text-[#6b8a99] text-xs tracking-[0.2em] uppercase mb-8">
             ABOUT PARAGON LAW
           </p>
           <h1 class="font-display text-6xl font-normal leading-tight mb-6">
@@ -85,7 +104,7 @@
 
         <!-- Right -->
         <div
-          class="md:w-[55%] flex flex-col justify-center gap-6 text-[#8a9eaa] text-sm leading-7"
+          class="md:w-[55%] flex flex-col justify-center gap-6 text-[#0b2230]/80 dark:text-[#8a9eaa] text-sm leading-7"
         >
           <p>
             Paragon Law is a boutique law firm providing top quality and
@@ -102,13 +121,13 @@
       </section>
 
       <!-- ===== VISION & MISSION ===== -->
-      <section class="bg-[#0b2230] px-12 pb-24 flex flex-col md:flex-row gap-0">
+      <section class="bg-white dark:bg-[#0b2230] px-12 pb-24 flex flex-col md:flex-row gap-0">
         <!-- Vision -->
         <div class="md:w-1/2 border-l-[3px] border-[#D1704D] pl-10 pr-16 py-6">
-          <h2 class="font-display text-3xl font-normal text-white mb-5">
+          <h2 class="font-display text-3xl font-normal text-[#D1704D] dark:text-white mb-5">
             Our Vision
           </h2>
-          <p class="text-[#8a9eaa] text-sm leading-7">
+          <p class="text-[#0b2230]/60 dark:text-[#8a9eaa] text-sm leading-7">
             Our vision is to be the most preferred law firm for commercially
             viable solutions to clients both locally and internationally.
           </p>
@@ -118,10 +137,10 @@
         <div
           class="md:w-1/2 border-l-[3px] border-[#D1704D] pl-10 pr-16 py-6 mt-10 md:mt-0"
         >
-          <h2 class="font-display text-3xl font-normal text-white mb-5">
+          <h2 class="font-display text-3xl font-normal text-[#D1704D] dark:text-white mb-5">
             Our Mission
           </h2>
-          <p class="text-[#8a9eaa] text-sm leading-7">
+          <p class="text-[#0b2230]/60 dark:text-[#8a9eaa] text-sm leading-7">
             Our mission is to provide efficient, timely, and diligent legal
             solutions to our clients, ensuring that their transactional needs
             are met promptly and effectively.

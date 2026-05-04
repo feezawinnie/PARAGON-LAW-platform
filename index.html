@@ -8,14 +8,18 @@
     <title>paragon-law</title>
   </head>
 
-  <body class="bg-[#0b2230] text-white">
+  <body
+    class="bg-white text-[#0b2230] dark:bg-[#0b2230] dark:text-white transition-colors duration-300"
+  >
     <div id="page-transition"></div>
     <div id="app">
       <!-- NAVIGATION BAR -->
       <header
         class="flex items-center justify-between px-10 py-8 border-b border-[#D1704D]"
       >
-        <div class="text-[#FFFFFF] font-semibold">PARAGON LAW</div>
+        <div class="text-[#D1704D] dark:text-[#FFFFFF] font-semibold">
+          PARAGON LAW
+        </div>
 
         <nav class="space-x-8 hidden md:block text-semibold">
           <a href="index.html" class="text-[#D1704D]">HOME</a>
@@ -32,10 +36,19 @@
         <div class="flex items-center gap-4">
           <a
             href="contact.html"
-            class="border border-[#D1704D] px-4 py-2 text-[#D1704D]"
+            class="border border-[#D1704D] px-4 py-2 text-[#D1704D] sm:text-xs hover:bg-[#D1704D] hover:text-white transition-colors sm:px-1 sm:py-1"
           >
             GET IN TOUCH →
           </a>
+
+          <button
+            onclick="toggleTheme()"
+            id="theme-toggle"
+            class="text-[#D1704D] hover:text-white transition-colors"
+          >
+            <i id="theme-icon" data-lucide="sun" class="w-5 h-5"></i>
+          </button>
+
           <button id="menu-btn" class="md:hidden text-[#D1704D]">
             <i id="icon-menu" data-lucide="menu" class="w-8 h-8"></i>
           </button>
@@ -44,33 +57,45 @@
 
       <!-- mobile menu -->
       <div
-        id="mobile-menu"
-        class="hidden flex-col bg-[#0b2230] border-b border-[#D1704D] py-4 space-y-4 md:hidden"
+        class="hidden flex-col bg-[white]/20 dark:bg-[#0b2230] border-b border-[#D1704D] py-4 space-y-4 md:hidden"
       >
         <a href="/index.html" class="text-[#D1704D]">HOME</a>
-        <a href="/about.html" class="text-white hover:text-[#D1704D] block"
+        <a
+          href="/about.html"
+          class="text-[#0b2230]/60 dark:text-white hover:text-[#D1704D] block"
           >ABOUT</a
         >
         <a
           href="/practice-areas.html"
-          class="text-white hover:text-[#D1704D] block"
+          class="text-[#0b2230]/60 dark:text-white hover:text-[#D1704D] block"
           >PRACTICE AREAS</a
         >
       </div>
 
       <!-- HERO SECTION-->
       <section
-        class="relative min-h-[85vh] flex items-center px-10 py-20 overflow-hidden"
+        class="relative min-h-[85vh] flex items-center px-10 py-20 overflow-hidden bg-white dark:bg-transparent"
       >
         <!-- RIGHT ARTPIECE-->
         <div class="hidden md:block absolute top-0 right-0 w-[55%] h-full">
           <img
             src="/src/assets/paragon-img.jpg"
-            class="w-full h-full opacity-100"
+            class="w-full h-full opacity-40 dark:opacity-100"
             style="display: block"
           />
           <div
-            class="absolute inset-0"
+            class="absolute inset-0 dark:hidden"
+            style="
+              background: linear-gradient(
+                to right,
+                #ffffff 0%,
+                rgba(255, 255, 255, 0.6) 40%,
+                rgba(255, 255, 255, 0.1) 100%
+              );
+            "
+          ></div>
+          <div
+            class="absolute inset-0 hidden dark:block"
             style="
               background: linear-gradient(
                 to bottom,
@@ -88,18 +113,20 @@
             PARAGON LAW — KIGALI, RWANDA
           </p>
 
-          <h1 class="text-5xl md:text-7xl font-bold leading-tight">
+          <h1
+            class="text-5xl md:text-7xl font-bold leading-tight text-[#0b2230] dark:text-white"
+          >
             WELCOME TO <br />
             <span class="text-[#D1704D]">PARAGON LAW</span>
           </h1>
 
-          <p class="mt-6 text-2xl text-[#C2C7CB] max-w-md">
+          <p class="mt-6 text-2xl text-[#4a6070] dark:text-[#C2C7CB] max-w-md">
             We deliver tailored legal solutions to meet your legal needs and
             support your business success.
           </p>
 
           <button
-            class="mt-8 border-2 border-[#FFFFFF] px-6 py-3 text-[#FFFFFF] w-fit"
+            class="mt-8 border-2 border-[#D1704D] px-6 py-3 text-[#D1704D] dark:border-[#FFFFFF] dark:text-[#FFFFFF] w-fit hover:bg-[#0b2230] hover:text-white dark:hover:bg-transparent dark:hover:text-[#FFFFFF] transition-colors"
           >
             LEARN MORE
           </button>
@@ -107,56 +134,58 @@
       </section>
 
       <!-- PRACTICE AREAS -->
-      <section class="bg-[#0b2230] px-10 py-20 border border-[#D1704D]">
+      <section
+        class="bg-white dark:bg-[#0b2230] px-10 py-20 border border-[#D1704D]"
+      >
         <p class="text-[#D1704D] tracking-widest text-xs mb-2">OUR EXPERTISE</p>
         <h2 class="text-4xl font-bold">Practice Areas</h2>
         <div class="w-15 h-0.75 bg-[#D1704D] mt-3 mb-12"></div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-12">
           <div
-            class="border border-white/10 bg-white/3 px-5 py-4 flex items-center gap-4 text-sm hover:border-[#D1704D]/60 hover:bg-[#D1704D]/5 transition-all cursor-pointer"
+            class="border px-5 py-4 flex items-center gap-4 text-sm border-[#D1704D]/60 bg-[#D1704D]/5 hover:bg-[#0b2230]/10 dark:border-white/10 dark:bg-white/3 dark:hover:border-[#D1704D]/60 dark:hover:bg-[#D1704D]/5 transition-all cursor-pointer"
           >
             <span class="text-[#D1704D] text-xs font-bold">01</span> Corporate
             &amp; Commercial
           </div>
 
           <div
-            class="border border-white/10 bg-white/3 px-5 py-4 flex items-center gap-4 text-sm hover:border-[#D1704D]/60 hover:bg-[#D1704D]/5 transition-all cursor-pointer"
+            class="border px-5 py-4 flex items-center gap-4 text-sm border-[#D1704D]/60 bg-[#D1704D]/5 hover:bg-[#0b2230]/10 dark:border-white/10 dark:bg-white/3 dark:hover:border-[#D1704D]/60 dark:hover:bg-[#D1704D]/5 transition-all cursor-pointer"
           >
             <span class="text-[#D1704D] text-xs font-bold">02</span> Banking
             &amp; Finance
           </div>
 
           <div
-            class="border border-white/10 bg-white/3 px-5 py-4 flex items-center gap-4 text-sm hover:border-[#D1704D]/60 hover:bg-[#D1704D]/5 transition-all cursor-pointer"
+            class="border px-5 py-4 flex items-center gap-4 text-sm border-[#D1704D]/60 bg-[#D1704D]/5 hover:bg-[#0b2230]/10 dark:border-white/10 dark:bg-white/3 dark:hover:border-[#D1704D]/60 dark:hover:bg-[#D1704D]/5 transition-all cursor-pointer"
           >
             <span class="text-[#D1704D] text-xs font-bold">03</span> Telecom,
             Media and Technologies (TMT)
           </div>
 
           <div
-            class="border border-white/10 bg-white/3 px-5 py-4 flex items-center gap-4 text-sm hover:border-[#D1704D]/60 hover:bg-[#D1704D]/5 transition-all cursor-pointer"
+            class="border px-5 py-4 flex items-center gap-4 text-sm border-[#D1704D]/60 bg-[#D1704D]/5 hover:bg-[#0b2230]/10 dark:border-white/10 dark:bg-white/3 dark:hover:border-[#D1704D]/60 dark:hover:bg-[#D1704D]/5 transition-all cursor-pointer"
           >
             <span class="text-[#D1704D] text-xs font-bold">04</span> Legal Due
             Diligence
           </div>
 
           <div
-            class="border border-white/10 bg-white/3 px-5 py-4 flex items-center gap-4 text-sm hover:border-[#D1704D]/60 hover:bg-[#D1704D]/5 transition-all cursor-pointer"
+            class="border px-5 py-4 flex items-center gap-4 text-sm border-[#D1704D]/60 bg-[#D1704D]/5 hover:bg-[#0b2230]/10 dark:border-white/10 dark:bg-white/3 dark:hover:border-[#D1704D]/60 dark:hover:bg-[#D1704D]/5 transition-all cursor-pointer"
           >
             <span class="text-[#D1704D] text-xs font-bold">05</span>
             Labour/Employment
           </div>
 
           <div
-            class="border border-white/10 bg-white/3 px-5 py-4 flex items-center gap-4 text-sm hover:border-[#D1704D]/60 hover:bg-[#D1704D]/5 transition-all cursor-pointer"
+            class="border px-5 py-4 flex items-center gap-4 text-sm border-[#D1704D]/60 bg-[#D1704D]/5 hover:bg-[#0b2230]/10 dark:border-white/10 dark:bg-white/3 dark:hover:border-[#D1704D]/60 dark:hover:bg-[#D1704D]/5 transition-all cursor-pointer"
           >
             <span class="text-[#D1704D] text-xs font-bold">06</span> Commercial
             Litigation and Commercial Arbitration
           </div>
 
           <div
-            class="border border-white/10 bg-white/3 px-5 py-4 flex items-center gap-4 text-sm hover:border-[#D1704D]/60 hover:bg-[#D1704D]/5 transition-all cursor-pointer"
+            class="border px-5 py-4 flex items-center gap-4 text-sm border-[#D1704D]/60 bg-[#D1704D]/5 hover:bg-[#0b2230]/10 dark:border-white/10 dark:bg-white/3 dark:hover:border-[#D1704D]/60 dark:hover:bg-[#D1704D]/5 transition-all cursor-pointer"
           >
             <span class="text-[#D1704D] text-xs font-bold">07</span> Taxation
           </div>
