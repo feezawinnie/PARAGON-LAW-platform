@@ -1,24 +1,2 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
-
-#page-transition {
-  position: fixed;
-  inset: 0;
-  background: #ffffff;
-  z-index: 9999;
-  pointer-events: none;
-  opacity: 1;
-  transition: opacity 0.4s ease-in-out;
-}
-.dark #page-transition {
-  background: #0f172a;
-}
-
-#page-transition.loaded {
-  opacity: 0;
-}
-
-#page-transition.leaving {
-  opacity: 1;
-  pointer-events: all;
-}

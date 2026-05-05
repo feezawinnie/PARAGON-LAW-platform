@@ -6,12 +6,14 @@
     <title>practice-areas</title>
   </head>
   <body class="bg-white text-[#0b2230] dark:bg-[#0b2230] dark:text-white transition-colors duration-300">
-    <div id="page-transition"></div>
-    <div id="app">
+    <div id="app" style="opacity: 0; transform: translateY(12px); transition: opacity 400ms ease-out, transform 400ms ease-out;">
       <header
         class="flex items-center justify-between px-10 py-8 border-b border-[#D1704D]"
       >
-        <div class="text-[#D1704D] dark:text-[#FFFFFF] font-semibold">PARAGON LAW</div>
+        <a href="index.html" class="flex items-center">
+          <img src="/src/assets/PL LOGO MAIN.svg" alt="Paragon Law" class="h-12 md:h-16 w-auto dark:hidden" />
+          <img src="/src/assets/PL LOGO MAIN-dark.svg" alt="Paragon Law" class="h-12 md:h-16 w-auto hidden dark:block" />
+        </a>
         <nav class="space-x-8 hidden md:block text-semibold">
           <a href="index.html" class="hover:text-[#D1704D] cursor-pointer">HOME</a>
           <a href="about.html" class="hover:text-[#D1704D] cursor-pointer"
@@ -47,7 +49,7 @@
       <!-- menu mobile -->
       <div
         id="mobile-menu"
-        class="hidden flex-col bg-[white]/20 dark:bg-[#0b2230] border-b border-[#D1704D] py-4 space-y-4 md:hidden"
+        class="hidden flex-col bg-[white]/20 dark:bg-[#0b2230] border-b border-[#D1704D] py-4 space-y-4 md:hidden transition-colors duration-300"
       >
         <a href="index.html" class="text-[#0b2230]/60 dark:text-white hover:text-[#D1704D] block">HOME</a>
         <a href="about.html" class="text-[#0b2230]/60 dark:text-white hover:text-[#D1704D] block"
@@ -241,8 +243,8 @@
       >
         <!-- paragon statement -->
         <div>
-          <div class="font-bold tracking-widest text-[#c4c7c9] mb-3">
-            PARAGON LAW
+          <div class="mb-4">
+            <img src="/src/assets/PL LOGO MAIN-dark.svg" alt="Paragon Law" class="h-12 md:h-16 w-auto" />
           </div>
           <p class="text-xs text-[#717273] leading-relaxed max-w-50">
             Law firm based in Kigali, providing specialized legal services
