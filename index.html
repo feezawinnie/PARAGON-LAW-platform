@@ -4,11 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-
     <title>paragon-law</title>
     <style>
-      html { background-color: #ffffff; }
-      html.dark { background-color: #0b2230; }
+      html {
+        background-color: #ffffff;
+      }
+      html.dark {
+        background-color: #0b2230;
+      }
     </style>
     <script>
       if (localStorage.getItem("theme") === "light") {
@@ -22,14 +25,31 @@
   <body
     class="bg-white text-[#0b2230] dark:bg-[#0b2230] dark:text-white transition-colors duration-300"
   >
-    <div id="app" style="opacity: 0; transform: translateX(-12px); transition: opacity 250ms ease-out, transform 250ms ease-out;">
+    <div
+      id="app"
+      style="
+        opacity: 0;
+        transform: translateX(-12px);
+        transition:
+          opacity 250ms ease-out,
+          transform 250ms ease-out;
+      "
+    >
       <!-- NAVIGATION BAR -->
       <header
         class="flex items-center justify-between px-10 py-8 border-b border-[#D1704D]"
       >
         <a href="index.html" class="flex items-center">
-          <img src="/src/assets/PL LOGO MAIN.svg" alt="Paragon Law" class="h-12 md:h-16 w-auto dark:hidden" />
-          <img src="/src/assets/PL LOGO MAIN-dark.svg" alt="Paragon Law" class="h-12 md:h-16 w-auto hidden dark:block" />
+          <img
+            src="/src/assets/PL LOGO MAIN.svg"
+            alt="Paragon Law"
+            class="h-18 md:h-22 w-auto dark:hidden"
+          />
+          <img
+            src="/src/assets/PL LOGO MAIN-dark.svg"
+            alt="Paragon Law"
+            class="h-18 md:h-22 w-auto hidden dark:block"
+          />
         </a>
 
         <nav class="space-x-8 hidden md:block text-semibold">
@@ -49,7 +69,9 @@
             href="contact.html"
             class="border border-[#D1704D] text-[#D1704D] hover:bg-[#D1704D] hover:text-white transition-colors flex items-center justify-center p-2 sm:px-4 sm:py-2"
           >
-            <span class="hidden sm:inline text-xs font-semibold">GET IN TOUCH →</span>
+            <span class="hidden sm:inline text-xs font-semibold"
+              >GET IN TOUCH →</span
+            >
             <i data-lucide="phone" class="w-5 h-5 sm:hidden"></i>
           </a>
 
@@ -132,7 +154,9 @@
             <span class="text-[#D1704D]">PARAGON LAW</span>
           </h1>
 
-          <p class="mt-6 text-lg md:text-2xl text-[#4a6070] dark:text-[#C2C7CB] max-w-md">
+          <p
+            class="mt-6 text-lg md:text-2xl text-[#4a6070] dark:text-[#C2C7CB] max-w-md"
+          >
             We deliver tailored legal solutions to meet your legal needs and
             support your business success.
           </p>
@@ -146,9 +170,7 @@
       </section>
 
       <!-- PRACTICE AREAS -->
-      <section
-        class="px-10 py-20 border border-[#D1704D]"
-      >
+      <section class="px-10 py-20 border border-[#D1704D]">
         <p class="text-[#D1704D] tracking-widest text-xs mb-2">OUR EXPERTISE</p>
         <h2 class="text-3xl md:text-4xl font-bold">Practice Areas</h2>
         <div class="w-15 h-0.75 bg-[#D1704D] mt-3 mb-12"></div>
@@ -221,7 +243,11 @@
           <!-- paragon statement -->
           <div>
             <div class="mb-4">
-              <img src="/src/assets/PL LOGO MAIN-dark.svg" alt="Paragon Law" class="h-12 md:h-16 w-auto" />
+              <img
+                src="/src/assets/PL LOGO MAIN-dark.svg"
+                alt="Paragon Law"
+                class="h-18 md:h-22 w-auto"
+              />
             </div>
             <p class="text-xs text-[#717273] leading-relaxed max-w-50">
               Law firm based in Kigali, providing specialized legal services
@@ -367,7 +393,7 @@
       </footer>
     </div>
 
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="src/main.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
       lucide.createIcons();
