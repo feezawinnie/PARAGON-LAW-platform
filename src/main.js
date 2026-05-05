@@ -60,17 +60,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const overlay = document.getElementById("page-transition");
 
   if (overlay) {
-    // Fade in when page loads
-    overlay.style.opacity = "1";
-    overlay.style.transition = "none";
+    // Fade out when page loads
     requestAnimationFrame(function () {
-      requestAnimationFrame(function () {
-        overlay.style.transition = "opacity 0.35s ease";
-        overlay.style.opacity = "0";
-      });
+      overlay.classList.add("loaded");
     });
 
-    // Fade out before navigating
+    // Fade in before navigating
     document.querySelectorAll("a[href]").forEach(function (link) {
       link.addEventListener("click", function (e) {
         var href = link.getAttribute("href");
@@ -78,14 +73,16 @@ document.addEventListener("DOMContentLoaded", function () {
           !href ||
           href === "#" ||
           href.startsWith("mailto") ||
-          href.startsWith("tel")
+          href.startsWith("tel") ||
+          link.target === "_blank"
         )
           return;
         e.preventDefault();
+        overlay.classList.remove("loaded");
         overlay.classList.add("leaving");
         setTimeout(function () {
           window.location.href = href;
-        }, 350);
+        }, 400);
       });
     });
   }
