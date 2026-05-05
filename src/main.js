@@ -58,12 +58,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ── Page transitions ──
   const appContainer = document.getElementById("app");
-
   if (appContainer) {
     // Fade in when page loads
     setTimeout(function () {
       appContainer.style.opacity = '1';
-      appContainer.style.transform = 'translateY(0)';
+      appContainer.style.transform = 'translateX(0)';
     }, 50);
 
     // Fade out before navigating
@@ -77,19 +76,18 @@ document.addEventListener("DOMContentLoaded", function () {
           href.startsWith("tel") ||
           link.target === "_blank" ||
           link.href === window.location.href ||
-          e.ctrlKey || e.metaKey // allow opening in new tab
-        )
-          return;
+          e.ctrlKey || e.metaKey
+        ) return;
         
         e.preventDefault();
         
-        appContainer.style.transition = 'opacity 300ms ease-in, transform 300ms ease-in';
+        appContainer.style.transition = 'opacity 250ms ease-in, transform 250ms ease-in';
         appContainer.style.opacity = '0';
-        appContainer.style.transform = 'translateY(-8px)';
+        appContainer.style.transform = 'translateX(12px)';
         
         setTimeout(function () {
           window.location.href = href;
-        }, 300); // Wait 300ms for fade out before navigating
+        }, 200); // Wait for fade out
       });
     });
   }
