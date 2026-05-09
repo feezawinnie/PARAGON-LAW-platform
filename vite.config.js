@@ -1,18 +1,7 @@
 import { defineConfig } from "vite";
-import { resolve } from "path";
+import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  base: "./",
-  plugins: [tailwindcss()],
-  build: {
-    rollupOptions: {
-      input: {
-        main: resolve(__dirname, "index.html"),
-        about: resolve(__dirname, "about.html"),
-        contact: resolve(__dirname, "contact.html"),
-        practice_areas: resolve(__dirname, "practice-areas.html"),
-      },
-    },
-  },
+  plugins: [react(), tailwindcss()],
 });
