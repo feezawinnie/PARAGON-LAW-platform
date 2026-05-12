@@ -59,7 +59,7 @@ export function HomePage() {
             PARAGON LAW — KIGALI, RWANDA
           </p>
 
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight text-[#0b2230] dark:text-white">
+          <h1 className="font-display text-5xl md:text-7xl font-semibold leading-[1.05] tracking-wide text-[#0b2230] dark:text-white">
             WELCOME TO <br />
             <span className="text-[#D1704D]">PARAGON LAW</span>
           </h1>

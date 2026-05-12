@@ -10,11 +10,11 @@ export function AboutPage() {
     <>
       {/* Hero: gravel image — taller band; same crop, overlays, and scales as before */}
       <section className="relative w-full overflow-hidden">
-        <div className="relative h-72 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[30rem]">
+        <div className="relative h-72 sm:h-80 md:h-96 lg:h-112 xl:h-120">
           <img
             src={gravelUrl}
             alt=""
-            className="absolute inset-0 h-[108%] w-full max-w-none -top-[4%] object-cover object-[center_62%] scale-[1.15] sm:scale-110 md:scale-105"
+            className="absolute inset-0 h-[108%] w-full max-w-none top-[-4%] object-cover object-[center_62%] scale-[1.15] sm:scale-110 md:scale-105"
           />
           {/* Light: lift shadows, fade content edge, hint of brand warmth */}
           <div
@@ -24,8 +24,8 @@ export function AboutPage() {
                 linear-gradient(
                   90deg,
                   rgba(255, 255, 255, 0.92) 0%,
-                  rgba(255, 255, 255, 0.45) 28%,
-                  rgba(255, 255, 255, 0.12) 55%,
+                  rgba(255, 255, 255, 0.45) 40%,
+                  rgba(255, 255, 255, 0.12) 60%,
                   transparent 72%
                 ),
                 linear-gradient(
@@ -51,8 +51,8 @@ export function AboutPage() {
                 linear-gradient(
                   90deg,
                   rgba(11, 34, 48, 0.88) 0%,
-                  rgba(11, 34, 48, 0.4) 38%,
-                  rgba(11, 34, 48, 0.12) 62%,
+                  rgba(11, 34, 48, 0.4) 40%,
+                  rgba(11, 34, 48, 0.12) 60%,
                   transparent 78%
                 ),
                 linear-gradient(
@@ -123,8 +123,8 @@ export function AboutPage() {
           </h2>
           <p className="text-[#0b2230]/60 dark:text-[#8a9eaa] text-sm leading-7">
             Our mission is to provide efficient, timely, and diligent legal
-            solutions to our clients, ensuring that their transactional needs are
-            met promptly and effectively.
+            solutions to our clients, ensuring that their transactional needs
+            are met promptly and effectively.
           </p>
         </div>
       </section>

@@ -6,6 +6,7 @@ export const practiceAreaNames = [
   "Labour/Employment",
   "Commercial Litigation & Arbitration",
   "Taxation",
+  "Data protection",
 ];
 
 export const practiceAreasHome = [
@@ -16,6 +17,7 @@ export const practiceAreasHome = [
   { num: "05", title: "Labour/Employment" },
   { num: "06", title: "Commercial Litigation and Commercial Arbitration" },
   { num: "07", title: "Taxation" },
+  { num: "08", title: "Data protection" },
 ];
 
 export const siteContact = {

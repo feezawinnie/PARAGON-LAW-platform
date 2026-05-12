@@ -5,6 +5,7 @@ import {
   Radio,
   Scale,
   Search,
+  Shield,
   Users,
 } from "lucide-react";
 import { useEffect } from "react";
@@ -62,6 +63,12 @@ const practiceAreas = [
     title: "Taxation",
     desc: "We provide legal guidance for tax compliance and optimization.",
   },
+  {
+    num: "08",
+    icon: Shield,
+    title: "Data protection",
+    desc: "We advise and assist on all legal and regulatory matters relating to data protection.",
+  },
 ];
 
 function PracticeAreaCard({ num, icon: Icon, title, desc }) {
@@ -84,8 +91,6 @@ export function PracticeAreasPage() {
     document.title = "Practice Areas — Paragon Law";
   }, []);
 
-  const [a1, a2, a3, a4, a5, a6, a7] = practiceAreas;
-
   return (
     <>
       <div className="px-10 mt-16 mb-12">
@@ -99,24 +104,10 @@ export function PracticeAreasPage() {
       </div>
 
       <section className="px-10 pb-20">
-        <div className="grid grid-cols-1 items-stretch gap-4 md:grid-cols-3 mb-4">
-          <PracticeAreaCard {...a1} />
-          <PracticeAreaCard {...a2} />
-          <PracticeAreaCard {...a3} />
-        </div>
-
-        <div className="grid grid-cols-1 items-stretch gap-4 md:grid-cols-3 mb-4">
-          <div className="flex h-full min-h-0 w-full md:col-span-2">
-            <PracticeAreaCard {...a4} />
-          </div>
-          <PracticeAreaCard {...a5} />
-        </div>
-
-        <div className="grid grid-cols-1 items-stretch gap-4 md:grid-cols-3">
-          <div className="flex h-full min-h-0 w-full md:col-span-2">
-            <PracticeAreaCard {...a6} />
-          </div>
-          <PracticeAreaCard {...a7} />
+        <div className="grid grid-cols-1 items-stretch gap-4 md:grid-cols-2">
+          {practiceAreas.map((area) => (
+            <PracticeAreaCard key={area.num} {...area} />
+          ))}
         </div>
       </section>
 
