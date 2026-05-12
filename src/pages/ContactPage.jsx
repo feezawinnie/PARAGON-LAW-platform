@@ -1,246 +1,206 @@
-import { useEffect, useState } from "react";
-import { isValidEmail } from "../lib/validation";
-import { siteContact } from "../data/site";
+import { useState } from "react";
+import { useTheme } from "../contexts/ThemeContext";
+import { Reveal } from "../components/ui/Reveal";
 
-const emptyErrors = {
-  name: false,
-  email: false,
-  subject: false,
-  message: false,
-};
+const inputBase =
+  "w-full bg-transparent border-0 border-b pb-3 pt-1 text-[14px] outline-none placeholder:text-[#6a7282] placeholder:text-[11px] placeholder:tracking-[0.8px] placeholder:uppercase transition-colors duration-200 focus:border-[#d1704d]";
 
 export function ContactPage() {
-  useEffect(() => {
-    document.title = "Contact — Paragon Law";
-  }, []);
+  const { isDark } = useTheme();
+  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+  const [sent, setSent] = useState(false);
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [subject, setSubject] = useState("");
-  const [message, setMessage] = useState("");
-  const [errors, setErrors] = useState(emptyErrors);
-  const [success, setSuccess] = useState(false);
+  const inputColor = isDark
+    ? "border-[#4a5565] text-[#d1d5dc] focus:border-[#d1704d]"
+    : "border-gray-300 text-[#1a2332] focus:border-[#d1704d]";
 
-  const inputBorder = (bad) =>
-    `w-full bg-transparent border-0 border-b ${
-      bad
-        ? "border-red-400"
-        : "border-[#0b2230]/30 dark:border-white/50"
-    } text-[#0b2230]/60 dark:text-[#f0ece4] font-light text-[15px] pb-2 pt-1 outline-none focus:border-orange-600 transition-colors duration-200 caret-orange-600`;
+  const onChange = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
 
-  function handleSubmit() {
-    setErrors(emptyErrors);
-    setSuccess(false);
-
-    const next = { ...emptyErrors };
-    let ok = true;
-
-    if (!name.trim()) {
-      next.name = true;
-      ok = false;
-    }
-    if (!isValidEmail(email)) {
-      next.email = true;
-      ok = false;
-    }
-    if (!subject.trim()) {
-      next.subject = true;
-      ok = false;
-    }
-    if (!message.trim()) {
-      next.message = true;
-      ok = false;
-    }
-
-    setErrors(next);
-    if (!ok) return;
-
-    setSuccess(true);
-    setName("");
-    setEmail("");
-    setSubject("");
-    setMessage("");
-  }
+  const onSubmit = (e) => {
+    e.preventDefault();
+    setSent(true);
+    setTimeout(() => setSent(false), 4000);
+    setForm({ name: "", email: "", subject: "", message: "" });
+  };
 
   return (
-    <>
-      <section className="max-w-6xl mx-auto px-6 sm:px-12 md:px-20 pt-24 pb-14">
-        <p className="text-[11px] font-medium tracking-[0.25em] uppercase text-[#D1704D] mb-12">
-          GET IN TOUCH
-        </p>
-        <h1 className="font-display font-semibold text-5xl md:text-7xl tracking-wide leading-none mb-5 text-[#0b2230] dark:text-[#FFFFFF]">
-          Contact Us
-        </h1>
-        <div className="w-24 h-0.5 bg-[#D1704D] mb-10 mt-8" />
-        <p className="text-[20px] md:text-[30px] font-light mb-10 tracking-wide text-[#0b2230]/60 dark:text-[#8fa3b1]">
-          We&apos;re here to help. Reach out to discuss your legal needs and
-          discover how we can support your business.
-        </p>
+    <div className={isDark ? "bg-[#0a1f2e]" : "bg-white"}>
+      <section className="max-w-[1280px] mx-auto px-8 pt-20 pb-8">
+        <Reveal delay={0}>
+          <p className="text-[#d1704d] text-[11px] tracking-[2.4px] uppercase font-semibold mb-8">
+            Get in Touch
+          </p>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <h1
+            className={`font-display font-bold tracking-[-1.5px] mb-4 ${isDark ? "text-white" : "text-[#0a1f2e]"
+              }`}
+            style={{ fontSize: "clamp(40px, 6vw, 80px)", lineHeight: 1.05 }}
+          >
+            Contact Us
+          </h1>
+        </Reveal>
+        <Reveal delay={0.2}>
+          <p
+            className={`text-[16px] leading-[1.65] max-w-[520px] ${isDark ? "text-[#9ca3af]" : "text-[#4b5563]"
+              }`}
+          >
+            We're here to help. Reach out to discuss your legal needs and discover
+            how we can support your business.
+          </p>
+        </Reveal>
       </section>
 
-      <section className="max-w-6xl mx-auto px-6 sm:px-12 md:px-20 pb-28 grid grid-cols-1 md:grid-cols-[minmax(0,_1fr)_minmax(0,_1.12fr)] lg:grid-cols-[minmax(0,_1fr)_minmax(0,_1.22fr)] gap-12 md:gap-y-12 md:gap-x-32 lg:gap-x-44 xl:gap-x-56 items-stretch">
-        <div className="w-full max-w-lg min-w-0 self-start">
-          <h2 className="font-display text-3xl md:text-[40px] font-semibold tracking-tight text-[#0b2230]/80 dark:text-[#f0ece4] mb-9">
-            Contact us at
-          </h2>
+      <section className="max-w-[1280px] mx-auto px-8 pt-10 pb-28">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
 
-          <ul className="mb-12">
-            <li className="border-l-2 border-[#D1704D] pl-5 py-4 mb-8">
-              <p className="text-[15px] font-semibold tracking-[0.2em] uppercase text-[#D1704D] mb-2">
-                Email
-              </p>
-              <p className="text-base md:text-[20px] font-normal text-[#0b2230]/60 dark:text-[#f0ece4]">
-                {siteContact.email}
-              </p>
-            </li>
-            <li className="border-l-2 border-[#D1704D] pl-5 mb-8 py-4">
-              <p className="text-[15px] font-semibold tracking-[0.2em] uppercase text-[#D1704D] mb-2">
-                Phone
-              </p>
-              <p className="text-base md:text-[20px] font-normal text-[#0b2230]/60 dark:text-[#f0ece4]">
-                {siteContact.phone}
-              </p>
-            </li>
-            <li className="border-l-2 border-[#D1704D] pl-5 py-4">
-              <p className="text-[15px] font-semibold tracking-[0.2em] uppercase text-[#D1704D] mb-2">
-                Address
-              </p>
-              <p className="text-base md:text-[20px] font-normal text-[#0b2230]/60 dark:text-[#f0ece4]">
-                {siteContact.address}
-              </p>
-            </li>
-          </ul>
-
-          <div>
-            <h3 className="font-display text-2xl md:text-[34px] tracking-wide font-semibold text-[#0b2230]/80 dark:text-[#f0ece4] mb-4">
-              Office Hours
-            </h3>
-            <ul className="space-y-2 tracking-wide">
-              <li className="text-[17px] font-light text-[#8fa3b1]">
-                Monday – Friday: 9:00 AM – 6:00 PM
-              </li>
-              <li className="text-[17px] font-light text-[#8fa3b1]">
-                Saturday: 9:00 AM – 1:00 PM
-              </li>
-              <li className="text-[17px] font-light text-[#8fa3b1]">
-                Sunday: Closed
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="w-full min-w-0 border border-[#0b2230]/20 dark:border-white/8 rounded-sm p-6 md:px-8 md:pb-8 md:pt-0 flex flex-col h-full">
-          <h2 className="font-display mt-2 text-xl md:text-[26px] font-normal tracking-tight text-[#0b2230]/90 dark:text-[#f0ece4] mb-9 shrink-0">
-            Send us a message
-          </h2>
-
-          <div className="flex min-h-0 flex-1 flex-col">
-            <div className="space-y-7">
-              <div>
-                <label
-                  htmlFor="f-name"
-                  className="block text-[10px] font-light tracking-wide uppercase text-[#0b2230]/60 dark:text-[#8fa3b1] mb-2"
-                >
-                  Your Name
-                </label>
-                <input
-                  id="f-name"
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className={inputBorder(errors.name)}
-                />
-                {errors.name ? (
-                  <span className="text-[11px] text-red-500 mt-1 block">
-                    Name is required
-                  </span>
-                ) : null}
-              </div>
-
-              <div>
-                <label
-                  htmlFor="f-email"
-                  className="block text-[10px] font-light tracking-wide uppercase text-[#0b2230]/60 dark:text-[#8fa3b1] mb-2"
-                >
-                  Email Address
-                </label>
-                <input
-                  id="f-email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className={inputBorder(errors.email)}
-                />
-                {errors.email ? (
-                  <span className="text-[11px] text-red-500 mt-1 block">
-                    Enter a valid email
-                  </span>
-                ) : null}
-              </div>
-
-              <div>
-                <label
-                  htmlFor="f-subject"
-                  className="block text-[10px] font-light tracking-wide uppercase text-[#0b2230]/60 dark:text-[#8fa3b1] mb-2"
-                >
-                  Subject
-                </label>
-                <input
-                  id="f-subject"
-                  type="text"
-                  value={subject}
-                  onChange={(e) => setSubject(e.target.value)}
-                  className={inputBorder(errors.subject)}
-                />
-                {errors.subject ? (
-                  <span className="text-[11px] text-red-500 mt-1 block">
-                    Subject is required
-                  </span>
-                ) : null}
-              </div>
-
-              <div>
-                <label
-                  htmlFor="f-message"
-                  className="block text-[10px] font-light tracking-wide uppercase text-[#0b2230]/60 dark:text-[#8fa3b1] mb-2"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="f-message"
-                  rows={4}
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  className={`${inputBorder(errors.message)} resize-none`}
-                />
-                {errors.message ? (
-                  <span className="text-[11px] text-red-500 mt-1 block">
-                    Message is required
-                  </span>
-                ) : null}
-              </div>
-            </div>
-
-            <div className="mt-auto shrink-0 pt-7">
-              <button
-                type="button"
-                onClick={handleSubmit}
-                className="w-full bg-[#D1704D] hover:bg-orange-500 text-[#f0ece4] text-[12px] font-semibold tracking-[0.25em] uppercase py-4.5 transition-colors duration-200 hover:-translate-y-px active:translate-y-0 transform"
+          <div className="flex flex-col gap-12">
+            <Reveal direction="left" delay={0.05}>
+              <h2
+                className={`font-display font-bold text-[26px] tracking-[-0.5px] mb-8 ${isDark ? "text-white" : "text-[#0a1f2e]"
+                  }`}
               >
-                Send Message
-              </button>
+                Contact us at
+              </h2>
 
-              {success ? (
-                <div className="text-center pt-2">
-                  <p className="text-[#D1704D] font-semibold text-[14px] tracking-wide">
-                    ✓ Message sent! We&apos;ll be in touch soon.
-                  </p>
-                </div>
-              ) : null}
-            </div>
+              <div className="flex flex-col gap-0">
+                {[
+                  { label: "Email", value: "info@paragonlaw.rw", href: "mailto:info@paragonlaw.rw" },
+                  { label: "Phone", value: "+250 730 303 607", href: "tel:+250730303607" },
+                  { label: "Address", value: "Kigali, Rwanda", href: null },
+                ].map(({ label, value, href }) => (
+                  <div
+                    key={label}
+                    className={`border-l-[3px] border-l-[#d1704d] pl-5 py-5 ${isDark ? "border-b border-b-white/5" : "border-b border-b-gray-100"
+                      }`}
+                  >
+                    <p className="text-[#d1704d] text-[10px] tracking-[1.4px] uppercase font-semibold mb-2">
+                      {label}
+                    </p>
+                    {href ? (
+                      <a
+                        href={href}
+                        className={`text-[15px] hover:text-[#d1704d] transition-colors duration-200 ${isDark ? "text-[#d1d5dc]" : "text-[#1a2332]"
+                          }`}
+                      >
+                        {value}
+                      </a>
+                    ) : (
+                      <p className={`text-[15px] ${isDark ? "text-[#d1d5dc]" : "text-[#1a2332]"}`}>
+                        {value}
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+
+            <Reveal direction="left" delay={0.15}>
+              <h2
+                className={`font-display font-bold text-[26px] tracking-[-0.5px] mb-6 ${isDark ? "text-white" : "text-[#0a1f2e]"
+                  }`}
+              >
+                Office Hours
+              </h2>
+              <div className="flex flex-col gap-3">
+                {[
+                  { day: "Monday - Friday", hours: "9:00 AM - 6:00 PM" },
+                  { day: "Saturday", hours: "9:00 AM - 1:00 PM" },
+                  { day: "Sunday", hours: "Closed" },
+                ].map(({ day, hours }) => (
+                  <div key={day} className="flex items-center justify-between">
+                    <span className={`text-[14px] ${isDark ? "text-[#9ca3af]" : "text-[#4b5563]"}`}>
+                      {day}
+                    </span>
+                    <span
+                      className={`text-[14px] font-medium ${hours === "Closed" ? "text-[#d1704d]" : isDark ? "text-[#d1d5dc]" : "text-[#1a2332]"
+                        }`}
+                    >
+                      {hours}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
           </div>
+
+          <Reveal direction="right" delay={0.1}>
+            <div
+              className={`p-10 border ${isDark
+                ? "bg-[#0b2b3d] border-[rgba(209,112,77,0.15)]"
+                : "bg-white border-gray-200 shadow-sm"
+                }`}
+            >
+              <h2
+                className={`font-display font-bold text-[24px] tracking-[-0.5px] mb-10 ${isDark ? "text-white" : "text-[#0a1f2e]"
+                  }`}
+              >
+                Send us a message
+              </h2>
+
+              {sent && (
+                <div className="mb-6 px-5 py-4 bg-[#d1704d]/10 border border-[#d1704d]/30 text-[#d1704d] text-[13px] tracking-[0.3px]">
+                  Message sent successfully. We'll be in touch soon.
+                </div>
+              )}
+
+              <form onSubmit={onSubmit} className="flex flex-col gap-8">
+                {[
+                  { name: "name", label: "Your Name", type: "text", placeholder: "Full name" },
+                  { name: "email", label: "Email Address", type: "email", placeholder: "your@email.com" },
+                  { name: "subject", label: "Subject", type: "text", placeholder: "How can we help?" },
+                ].map(({ name, label, type, placeholder }) => (
+                  <div key={name}>
+                    <label
+                      className={`block text-[10px] tracking-[0.8px] uppercase font-medium mb-3 ${isDark ? "text-[#6a7282]" : "text-[#9ca3af]"
+                        }`}
+                    >
+                      {label}
+                    </label>
+                    <input
+                      name={name}
+                      type={type}
+                      value={form[name]}
+                      onChange={onChange}
+                      required
+                      placeholder={placeholder}
+                      className={`${inputBase} ${inputColor}`}
+                    />
+                  </div>
+                ))}
+
+                <div>
+                  <label
+                    className={`block text-[10px] tracking-[0.8px] uppercase font-medium mb-3 ${isDark ? "text-[#6a7282]" : "text-[#9ca3af]"
+                      }`}
+                  >
+                    Message
+                  </label>
+                  <textarea
+                    name="message"
+                    value={form.message}
+                    onChange={onChange}
+                    required
+                    rows={5}
+                    placeholder="Tell us about your legal needs..."
+                    className={`${inputBase} ${inputColor} resize-none`}
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className={`w-full py-4 text-[12px] tracking-[1.4px] uppercase font-bold transition-all duration-300 border-2 ${isDark
+                      ? "border-[#d1704d] text-[#d1704d] hover:bg-[#d1704d]/10"
+                      : "border-[#0a1f2e] text-[#0a1f2e] hover:bg-[#0a1f2e]/5"
+                    }`}
+                >
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </Reveal>
         </div>
       </section>
-    </>
+    </div>
   );
 }

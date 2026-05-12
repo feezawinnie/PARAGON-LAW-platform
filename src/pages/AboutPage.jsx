@@ -1,133 +1,162 @@
-import { useEffect } from "react";
-import gravelUrl from "../assets/gravel.jpeg";
+import { Compass, Target } from "lucide-react";
+import { useTheme } from "../contexts/ThemeContext";
+import { Reveal } from "../components/ui/Reveal";
+import { motion } from "framer-motion";
+import gravelImg from "../assets/gravel.jpeg";
 
 export function AboutPage() {
-  useEffect(() => {
-    document.title = "About — Paragon Law";
-  }, []);
+  const { isDark } = useTheme();
+
+  const bg = isDark ? "bg-[#0a1f2e]" : "bg-white";
+  const headingColor = isDark ? "text-white" : "text-[#0a1f2e]";
+  const bodyColor = isDark ? "text-[#9ca3af]" : "text-[#4b5563]";
 
   return (
-    <>
-      {/* Hero: gravel image — taller band; same crop, overlays, and scales as before */}
-      <section className="relative w-full overflow-hidden">
-        <div className="relative h-72 sm:h-80 md:h-96 lg:h-112 xl:h-120">
+    <div className={bg}>
+      <section
+        className="relative overflow-hidden flex items-center"
+        style={{ minHeight: "calc(100vh - 100px)" }}
+      >
+        <div className={`absolute inset-0 ${bg}`} />
+        <div className="absolute inset-0 lg:left-1/2 lg:w-1/2 w-full h-full overflow-hidden">
           <img
-            src={gravelUrl}
-            alt=""
-            className="absolute inset-0 h-[108%] w-full max-w-none top-[-4%] object-cover object-[center_62%] scale-[1.15] sm:scale-110 md:scale-105"
+            src={gravelImg}
+            alt="Gavel on desk"
+            className="w-full h-full object-cover object-center"
+            style={{ opacity: isDark ? 0.24 : 0.95 }}
           />
-          {/* Light: lift shadows, fade content edge, hint of brand warmth */}
           <div
-            className="pointer-events-none absolute inset-0 dark:hidden"
-            style={{
-              background: `
-                linear-gradient(
-                  90deg,
-                  rgba(255, 255, 255, 0.92) 0%,
-                  rgba(255, 255, 255, 0.45) 40%,
-                  rgba(255, 255, 255, 0.12) 60%,
-                  transparent 72%
-                ),
-                linear-gradient(
-                  to bottom,
-                  rgba(255, 255, 255, 0.35) 0%,
-                  transparent 45%,
-                  rgba(232, 238, 242, 0.55) 100%
-                ),
-                linear-gradient(
-                  120deg,
-                  rgba(209, 112, 77, 0.18) 0%,
-                  transparent 50%
-                )
-              `,
-            }}
-            aria-hidden
-          />
-          {/* Dark: slate wash + terracotta glint + bottom weight */}
-          <div
-            className="pointer-events-none absolute inset-0 hidden dark:block"
-            style={{
-              background: `
-                linear-gradient(
-                  90deg,
-                  rgba(11, 34, 48, 0.88) 0%,
-                  rgba(11, 34, 48, 0.4) 40%,
-                  rgba(11, 34, 48, 0.12) 60%,
-                  transparent 78%
-                ),
-                linear-gradient(
-                  to bottom,
-                  rgba(11, 34, 48, 0.5) 0%,
-                  transparent 42%,
-                  rgba(11, 34, 48, 0.82) 100%
-                ),
-                linear-gradient(
-                  125deg,
-                  rgba(209, 112, 77, 0.22) 0%,
-                  transparent 45%
-                )
-              `,
-            }}
-            aria-hidden
-          />
-        </div>
-        <div
-          className="pointer-events-none absolute bottom-0 left-0 right-0 z-10 h-px bg-[#D1704D]/40 dark:bg-[#D1704D]/35 animate-line-reveal"
-          aria-hidden
-        />
-      </section>
-
-      <section className="px-12 py-20 flex flex-col md:flex-row gap-20">
-        <div className="md:w-[45%] shrink-0">
-          <p className="text-[#0b2230]/50 dark:text-[#6b8a99] text-xs tracking-[0.2em] uppercase mb-8">
-            ABOUT PARAGON LAW
-          </p>
-          <h1 className="font-display mb-6 text-4xl font-medium leading-[1.12] tracking-tight text-[#0b2230] dark:text-white md:text-6xl">
-            Who we are
-          </h1>
-          <div
-            className="w-14 h-0.5 bg-[#D1704D] block animate-line-reveal animate-line-reveal-delay-300"
-            aria-hidden
+            className={`absolute inset-0 ${isDark
+              ? "bg-gradient-to-r from-[#0a1f2e] via-[#0a1f2e]/55 to-transparent"
+              : "bg-gradient-to-r from-white via-white/80 to-transparent lg:from-white lg:via-white/55"
+              }`}
           />
         </div>
 
-        <div className="md:w-[55%] flex flex-col justify-center gap-6 text-[#0b2230]/80 dark:text-[#8a9eaa] text-sm leading-7">
-          <p>
-            Paragon Law is a boutique law firm providing top quality and
-            specialized legal services to clients across all sectors of the
-            economy.
-          </p>
-          <p>
-            Our expertise covers Corporate and Commercial matters, Banking and
-            Finance, Legal Due Diligence, Taxation, Labour/Employment,
-            Telecommunications, Media and Technologies (TMT), commercial
-            litigations and commercial arbitration.
-          </p>
+        <div className="relative z-10 w-full max-w-[1280px] mx-auto px-8 py-28">
+          <Reveal delay={0}>
+            <p className="text-[#d1704d] text-[11px] tracking-[2.4px] uppercase font-semibold mb-16">
+              About Paragon Law
+            </p>
+          </Reveal>
+
+          <div className="flex flex-col gap-14 max-w-[840px]">
+            <Reveal direction="up" delay={0.1}>
+              <h1
+                className={`font-display font-bold leading-[1.05] tracking-[-2px] mb-8 ${headingColor}`}
+                style={{ fontSize: "clamp(44px, 7vw, 88px)" }}
+              >
+                Who we are
+              </h1>
+              <motion.div
+                className="w-24 h-[4px] bg-[#d1704d]"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
+                style={{ transformOrigin: "left center" }}
+              />
+            </Reveal>
+
+            <Reveal direction="up" delay={0.25}>
+              <div className="flex flex-col gap-8">
+                <p className={`text-[18px] md:text-[20px] leading-[1.8] font-medium ${isDark ? "text-white/90" : "text-[#0a1f2e]/90"}`}>
+                  Paragon Law is a boutique law firm providing top quality and
+                  specialized legal services to clients across all sectors of the
+                  economy.
+                </p>
+                <p className={`text-[18px] leading-[1.85] font-medium ${isDark ? "text-white/90" : "text-[#0a1f2e]/90"}`}>
+                  We are a team of experienced and dynamic legal professionals
+                  and we offer our clients personalized solutions tailored to
+                  their needs.
+                </p>
+                <p className={`text-[18px] leading-[1.85] font-medium ${isDark ? "text-white/90" : "text-[#0a1f2e]/90"}`}>
+                  Our expertise covers various areas, including Corporate and
+                  Commercial matters, Banking and Finance, Labour/Employment,
+                  Telecommunications, Media and Technologies (TMT), Data
+                  Protection, commercial litigation and commercial arbitration.
+                </p>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
-      <section className="px-12 pb-24 flex flex-col md:flex-row gap-0">
-        <div className="md:w-1/2 border-l-[3px] border-[#D1704D] pl-10 pr-16 py-6">
-          <h2 className="font-display text-2xl font-medium tracking-tight text-[#D1704D] dark:text-white md:text-3xl mb-5">
-            Our Vision
-          </h2>
-          <p className="text-[#0b2230]/60 dark:text-[#8a9eaa] text-sm leading-7">
-            Our vision is to be the most preferred law firm for commercially
-            viable solutions to clients both locally and internationally.
-          </p>
-        </div>
+      <div className="max-w-[1280px] mx-auto px-8">
+        <div className={`h-px ${isDark ? "bg-white/5" : "bg-gray-100"}`} />
+      </div>
 
-        <div className="md:w-1/2 border-l-[3px] border-[#D1704D] pl-10 pr-16 py-6 mt-10 md:mt-0">
-          <h2 className="font-display text-2xl font-medium tracking-tight text-[#D1704D] dark:text-white md:text-3xl mb-5">
-            Our Mission
-          </h2>
-          <p className="text-[#0b2230]/60 dark:text-[#8a9eaa] text-sm leading-7">
-            Our mission is to provide efficient, timely, and diligent legal
-            solutions to our clients, ensuring that their transactional needs
-            are met promptly and effectively.
-          </p>
+      <section className={isDark ? "bg-[#0a1f2e]" : "bg-[#f8f7f5]"}>
+        <div className="max-w-[1280px] mx-auto px-8 pt-20 pb-28">
+          <Reveal delay={0}>
+            <p className="text-[#d1704d] text-[11px] tracking-[2.4px] uppercase font-semibold mb-14">
+              Our Core
+            </p>
+          </Reveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+
+            <Reveal direction="left" delay={0.08}>
+              <div
+                className={`relative flex flex-col h-full p-10 overflow-hidden ${isDark
+                  ? "bg-[#0b2b3d] border border-[rgba(209,112,77,0.15)]"
+                  : "bg-[#f8f7f5] border border-gray-100"
+                  }`}
+              >
+                <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#d1704d]" />
+                <div className="flex flex-col gap-6 pl-2">
+                  <div className="text-[#d1704d]">
+                    <Compass size={32} strokeWidth={1.5} />
+                  </div>
+
+                  <div className="flex flex-col gap-4">
+                    <h2
+                      className={`font-display font-bold text-[28px] leading-[1.2] tracking-[-0.5px] ${headingColor}`}
+                    >
+                      Our Vision
+                    </h2>
+
+                    <p className={`text-[15px] leading-[1.8] ${bodyColor}`}>
+                      Our vision is to be the most preferred law firm for
+                      commercially viable solutions to clients both locally and
+                      internationally.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal direction="right" delay={0.16}>
+              <div
+                className={`relative flex flex-col h-full p-10 overflow-hidden ${isDark
+                  ? "bg-[#0b2b3d] border border-[rgba(209,112,77,0.15)]"
+                  : "bg-[#f8f7f5] border border-gray-100"
+                  }`}
+              >
+                <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#d1704d]" />
+
+                <div className="flex flex-col gap-6 pl-2">
+                  <div className="text-[#d1704d]">
+                    <Target size={32} strokeWidth={1.5} />
+                  </div>
+                  <div className="flex flex-col gap-4">
+                    <h2
+                      className={`font-display font-bold text-[28px] leading-[1.2] tracking-[-0.5px] ${headingColor}`}
+                    >
+                      Our Mission
+                    </h2>
+                    <p className={`text-[15px] leading-[1.8] ${bodyColor}`}>
+                      Our mission is to provide efficient, timely, and diligent
+                      legal solutions to our clients, ensuring that their
+                      transactional needs are met promptly and effectively.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
