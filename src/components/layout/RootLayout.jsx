@@ -1,31 +1,21 @@
-import { useEffect, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import { SiteFooter } from "./SiteFooter";
+import { useEffect } from "react";
 import { SiteHeader } from "./SiteHeader";
+import { SiteFooter } from "./SiteFooter";
 
 export function RootLayout() {
-  const location = useLocation();
-  const [entered, setEntered] = useState(false);
+  const { pathname } = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    setEntered(false);
-    const t = requestAnimationFrame(() => setEntered(true));
-    return () => cancelAnimationFrame(t);
-  }, [location.pathname]);
+  }, [pathname]);
 
   return (
-    <div className="bg-[#f0ede6] text-[#0b2230] dark:bg-[#0b2230] dark:text-white transition-colors duration-300 min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col">
       <SiteHeader />
-      <div
-        className="flex-1 flex flex-col ease-out transition-[opacity,transform] duration-[250ms]"
-        style={{
-          opacity: entered ? 1 : 0,
-          transform: entered ? "translateX(0)" : "translateX(-12px)",
-        }}
-      >
+      <main className="flex-1 pt-[100px]">
         <Outlet />
-      </div>
+      </main>
       <SiteFooter />
     </div>
   );

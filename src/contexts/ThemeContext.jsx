@@ -18,7 +18,14 @@ export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(readStoredTheme);
 
   useLayoutEffect(() => {
-    document.documentElement.classList.toggle("dark", theme === "dark");
+    const root = document.documentElement;
+    if (theme === "dark") {
+      root.classList.add("dark");
+      root.classList.remove("light");
+    } else {
+      root.classList.add("light");
+      root.classList.remove("dark");
+    }
     localStorage.setItem("theme", theme);
   }, [theme]);
 
