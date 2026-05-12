@@ -13,80 +13,48 @@ export function HomePage() {
 
   return (
     <>
-      <section className="relative min-h-[85vh] flex items-center px-10 py-20 overflow-hidden bg-[#f0ede6] dark:bg-transparent">
-        {/* Right: photography + layered grade (light / dark) */}
-        <div className="hidden md:block absolute top-0 right-0 w-[55%] h-full isolate">
+      <section className="relative mb-14 flex min-h-[85vh] items-stretch overflow-hidden bg-[#f0ede6] px-10 pb-0 pt-0 dark:bg-transparent">
+        {/* Full-height left fill: section has no bottom padding so abs layers reach true bottom (pb used to leave an unfilled strip) */}
+        <div
+          className="pointer-events-none absolute -top-px bottom-0 left-0 z-[1] hidden w-[48%] bg-[#f0ede6] dark:bg-[#0b2230] md:block"
+          aria-hidden
+        />
+        {/* Right: letterboxing behind cover image matches page / dark shell */}
+        <div className="hidden md:block absolute -top-px bottom-0 right-0 left-[43%] z-[2] isolate bg-[#f0ede6] dark:bg-[#0b2230]">
           <img
             src={homePicUrl}
             alt="Paragon Law"
-            className="absolute inset-0 h-full w-full object-cover object-[center_40%] scale-105"
+            className="absolute inset-0 h-full w-full object-cover object-[center_40%]"
           />
-          {/* Light: cool white fade into photo + soft terracotta rim + gentle depth */}
+          {/* Light: layered linear grads on home-pic — cream join, soft depth, hint of brand warmth */}
           <div
             className="pointer-events-none absolute inset-0 dark:hidden"
             style={{
               background: `
-                linear-gradient(
-                  100deg,
-                  #f0ede6 0%,
-                  rgba(240, 237, 230, 0.82) 18%,
-                  rgba(240, 237, 230, 0.32) 38%,
-                  rgba(240, 237, 230, 0.05) 52%,
-                  transparent 60%
-                ),
-                linear-gradient(
-                  200deg,
-                  rgba(209, 112, 77, 0.28) 0%,
-                  rgba(209, 112, 77, 0.06) 35%,
-                  transparent 55%
-                ),
-                linear-gradient(
-                  to bottom,
-                  rgba(11, 34, 48, 0.08) 0%,
-                  transparent 40%,
-                  rgba(11, 34, 48, 0.18) 100%
-                )
+                linear-gradient(180deg, rgba(240, 237, 230, 0.5) 0%, rgba(240, 237, 230, 0.12) 14%, transparent 30%),
+                linear-gradient(100deg, rgba(240, 237, 230, 0.7) 0%, rgba(240, 237, 230, 0.28) 16%, rgba(240, 237, 230, 0.06) 32%, transparent 46%),
+                linear-gradient(200deg, rgba(209, 112, 77, 0.2) 0%, rgba(209, 112, 77, 0.05) 38%, transparent 58%),
+                linear-gradient(to bottom, transparent 52%, rgba(11, 34, 48, 0.07) 100%)
               `,
             }}
             aria-hidden
           />
-          {/* Dark: rich navy veil + warm accent + vignette so the image stays legible */}
+          {/* Dark: navy veil + join + warm accent + gentle floor */}
           <div
             className="pointer-events-none absolute inset-0 hidden dark:block"
             style={{
               background: `
-                linear-gradient(
-                  100deg,
-                  rgba(11, 34, 48, 0.92) 0%,
-                  rgba(11, 34, 48, 0.55) 28%,
-                  rgba(11, 34, 48, 0.2) 48%,
-                  rgba(11, 34, 48, 0.05) 58%,
-                  transparent 68%
-                ),
-                linear-gradient(
-                  210deg,
-                  rgba(209, 112, 77, 0.35) 0%,
-                  rgba(209, 112, 77, 0.08) 40%,
-                  transparent 60%
-                ),
-                linear-gradient(
-                  to bottom,
-                  rgba(11, 34, 48, 0.45) 0%,
-                  transparent 45%,
-                  rgba(11, 34, 48, 0.75) 100%
-                ),
-                radial-gradient(
-                  120% 80% at 85% 45%,
-                  transparent 35%,
-                  rgba(11, 34, 48, 0.5) 100%
-                )
+                linear-gradient(180deg, rgba(11, 34, 48, 0.65) 0%, rgba(11, 34, 48, 0.2) 16%, transparent 34%),
+                linear-gradient(100deg, rgba(11, 34, 48, 0.9) 0%, rgba(11, 34, 48, 0.5) 18%, rgba(11, 34, 48, 0.12) 36%, transparent 50%),
+                linear-gradient(210deg, rgba(209, 112, 77, 0.28) 0%, rgba(209, 112, 77, 0.06) 40%, transparent 62%),
+                linear-gradient(to bottom, transparent 48%, rgba(11, 34, 48, 0.65) 100%)
               `,
             }}
             aria-hidden
           />
         </div>
 
-        <div className="relative z-10 flex flex-col justify-center max-w-3xl">
+        <div className="relative z-10 flex w-full max-w-3xl flex-col justify-center bg-[#f0ede6] pt-20 dark:bg-[#0b2230] md:max-w-none md:w-[46%] md:shrink-0 md:justify-end md:self-stretch md:bg-transparent md:pr-4">
           <p className="text-[#D1704D] tracking-widest text-sm mb-4">
             PARAGON LAW — KIGALI, RWANDA
           </p>
@@ -110,7 +78,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="relative px-10 pt-20 pb-20 border-t border-x border-[#D1704D]">
+      <section className="relative border-x border-t border-[#D1704D] px-10 pb-20 pt-8">
         <p className="text-[#D1704D] tracking-widest text-xs mb-2">OUR EXPERTISE</p>
         <h2 className="font-display text-3xl font-semibold leading-tight tracking-tight text-[#0b2230] dark:text-white md:text-4xl">
           Practice Areas
