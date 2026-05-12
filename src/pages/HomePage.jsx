@@ -13,7 +13,7 @@ export function HomePage() {
 
   return (
     <>
-      <section className="relative mb-14 flex min-h-[85vh] items-stretch overflow-hidden bg-[#f0ede6] px-10 pb-0 pt-0 dark:bg-transparent">
+      <section className="relative mb-14 flex min-h-0 items-stretch overflow-hidden bg-[#f0ede6] px-6 pb-10 pt-0 dark:bg-transparent sm:px-10 md:min-h-[85vh] md:pb-0">
         {/* Full-height left fill: section has no bottom padding so abs layers reach true bottom (pb used to leave an unfilled strip) */}
         <div
           className="pointer-events-none absolute -top-px bottom-0 left-0 z-[1] hidden w-[48%] bg-[#f0ede6] dark:bg-[#0b2230] md:block"
@@ -54,17 +54,17 @@ export function HomePage() {
           />
         </div>
 
-        <div className="relative z-10 flex w-full max-w-3xl flex-col justify-center bg-[#f0ede6] pt-20 dark:bg-[#0b2230] md:max-w-none md:w-[46%] md:shrink-0 md:justify-end md:self-stretch md:bg-transparent md:pr-4">
-          <p className="text-[#D1704D] tracking-widest text-sm mb-4">
+        <div className="relative z-10 flex w-full max-w-3xl flex-col justify-start bg-[#f0ede6] pt-8 pb-2 dark:bg-[#0b2230] sm:pt-10 md:max-w-none md:w-[46%] md:shrink-0 md:justify-end md:self-stretch md:bg-transparent md:pt-20 md:pb-0 md:pr-4">
+          <p className="text-[#D1704D] tracking-widest text-xs sm:text-sm mb-3 sm:mb-4">
             PARAGON LAW — KIGALI, RWANDA
           </p>
 
-          <h1 className="font-display text-5xl md:text-7xl font-semibold leading-[1.05] tracking-wide text-[#0b2230] dark:text-white">
+          <h1 className="font-display text-4xl font-semibold leading-[1.08] tracking-wide text-[#0b2230] dark:text-white sm:text-5xl md:text-7xl md:leading-[1.05]">
             WELCOME TO <br />
             <span className="text-[#D1704D]">PARAGON LAW</span>
           </h1>
 
-          <p className="mt-6 text-lg md:text-2xl text-[#4a6070] dark:text-[#C2C7CB] max-w-md">
+          <p className="mt-4 max-w-md text-base text-[#4a6070] dark:text-[#C2C7CB] sm:mt-6 sm:text-lg md:text-2xl">
             We deliver tailored legal solutions to meet your legal needs and
             support your business success.
           </p>
