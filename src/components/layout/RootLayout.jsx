@@ -15,7 +15,7 @@ export function RootLayout() {
   }, [location.pathname]);
 
   return (
-    <div className="bg-white text-[#0b2230] dark:bg-[#0b2230] dark:text-white transition-colors duration-300 min-h-screen flex flex-col">
+    <div className="bg-[#f0ede6] text-[#0b2230] dark:bg-[#0b2230] dark:text-white transition-colors duration-300 min-h-screen flex flex-col">
       <SiteHeader />
       <div
         className="flex-1 flex flex-col ease-out transition-[opacity,transform] duration-[250ms]"

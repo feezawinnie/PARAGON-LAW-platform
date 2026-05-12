@@ -31,12 +31,12 @@ export function SiteHeader() {
           <img
             src={logoLight}
             alt="Paragon Law"
-            className="h-18 md:h-22 w-auto dark:hidden"
+            className="h-24 md:h-28 w-auto dark:hidden"
           />
           <img
             src={logoDark}
             alt="Paragon Law"
-            className="h-18 md:h-22 w-auto hidden dark:block"
+            className="h-24 md:h-28 w-auto hidden dark:block"
           />
         </Link>
 
@@ -95,7 +95,7 @@ export function SiteHeader() {
       {menuOpen ? (
         <nav
           id="mobile-menu"
-          className="flex flex-col bg-[white]/20 dark:bg-[#0b2230] border-b border-[#D1704D] py-4 space-y-4 md:hidden transition-colors duration-300"
+          className="flex flex-col bg-[#f0ede6] dark:bg-[#0b2230] border-b border-[#D1704D] py-4 space-y-4 md:hidden transition-colors duration-300"
         >
           <NavLink to="/" end className={mobileItem}>
             HOME

@@ -1,6 +1,21 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
+@theme {
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-body: "Source Sans 3", system-ui, -apple-system, sans-serif;
+  --font-sans: var(--font-body);
+}
+
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  background-color: #f0ede6;
+}
+
+html.dark body {
+  background-color: #0b2230;
+}
 *,
 *::before,
 *::after {
@@ -9,3 +24,43 @@
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
 }
+
+/* Horizontal rules that “draw” in from the left on load */
+@keyframes line-reveal-lr {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.animate-line-reveal {
+  transform-origin: left center;
+  transform: scaleX(0);
+  animation: line-reveal-lr 0.95s cubic-bezier(0.22, 1, 0.36, 1) var(--line-reveal-delay, 0s)
+    forwards;
+}
+
+.animate-line-reveal-delay-150 {
+  --line-reveal-delay: 0.15s;
+}
+
+.animate-line-reveal-delay-300 {
+  --line-reveal-delay: 0.3s;
+}
+
+.animate-line-reveal-delay-450 {
+  --line-reveal-delay: 0.45s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-line-reveal,
+  .animate-line-reveal-delay-150,
+  .animate-line-reveal-delay-300,
+  .animate-line-reveal-delay-450 {
+    animation: none;
+    transform: scaleX(1);
+  }
+}
+

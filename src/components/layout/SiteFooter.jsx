@@ -11,7 +11,7 @@ export function SiteFooter() {
             <img
               src={logoDark}
               alt="Paragon Law"
-              className="h-18 md:h-22 w-auto"
+              className="h-20 md:h-24 w-auto"
             />
           </div>
           <p className="text-xs text-[#717273] leading-relaxed max-w-50">

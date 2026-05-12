@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { practiceAreasHome } from "../data/site";
+import homePicUrl from "../assets/home-pic.jpeg";
 
 const cardClass =
   "border px-5 py-4 flex items-center gap-4 text-sm border-[#D1704D]/60 bg-[#D1704D]/5 hover:bg-[#0b2230]/10 dark:border-white/10 dark:bg-white/3 dark:hover:border-[#D1704D]/60 dark:hover:bg-[#D1704D]/5 transition-all cursor-pointer";
@@ -12,28 +13,76 @@ export function HomePage() {
 
   return (
     <>
-      <section className="relative min-h-[85vh] flex items-center px-10 py-20 overflow-hidden bg-white dark:bg-transparent">
-        <div className="hidden md:block absolute top-0 right-0 w-[55%] h-full">
-          <div
-            className="w-full h-full opacity-40 dark:opacity-100 bg-cover bg-center"
-            style={{
-              backgroundImage:
-                "linear-gradient(135deg, rgba(209,112,77,0.15) 0%, rgba(11,34,48,0.4) 100%), linear-gradient(to bottom, #0b2230, #1a4a5c)",
-            }}
+      <section className="relative min-h-[85vh] flex items-center px-10 py-20 overflow-hidden bg-[#f0ede6] dark:bg-transparent">
+        {/* Right: photography + layered grade (light / dark) */}
+        <div className="hidden md:block absolute top-0 right-0 w-[55%] h-full isolate">
+          <img
+            src={homePicUrl}
+            alt="Paragon Law"
+            className="absolute inset-0 h-full w-full object-cover object-[center_40%] scale-105"
           />
+          {/* Light: cool white fade into photo + soft terracotta rim + gentle depth */}
           <div
-            className="absolute inset-0 dark:hidden"
+            className="pointer-events-none absolute inset-0 dark:hidden"
             style={{
-              background:
-                "linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0.6) 40%, rgba(255, 255, 255, 0.1) 100%)",
+              background: `
+                linear-gradient(
+                  100deg,
+                  #f0ede6 0%,
+                  rgba(240, 237, 230, 0.82) 18%,
+                  rgba(240, 237, 230, 0.32) 38%,
+                  rgba(240, 237, 230, 0.05) 52%,
+                  transparent 60%
+                ),
+                linear-gradient(
+                  200deg,
+                  rgba(209, 112, 77, 0.28) 0%,
+                  rgba(209, 112, 77, 0.06) 35%,
+                  transparent 55%
+                ),
+                linear-gradient(
+                  to bottom,
+                  rgba(11, 34, 48, 0.08) 0%,
+                  transparent 40%,
+                  rgba(11, 34, 48, 0.18) 100%
+                )
+              `,
             }}
+            aria-hidden
           />
+          {/* Dark: rich navy veil + warm accent + vignette so the image stays legible */}
           <div
-            className="absolute inset-0 hidden dark:block"
+            className="pointer-events-none absolute inset-0 hidden dark:block"
             style={{
-              background:
-                "linear-gradient(to bottom, #0b2230 0%, rgba(11, 34, 48, 0.6) 40%, rgba(11, 34, 48, 0.1) 100%)",
+              background: `
+                linear-gradient(
+                  100deg,
+                  rgba(11, 34, 48, 0.92) 0%,
+                  rgba(11, 34, 48, 0.55) 28%,
+                  rgba(11, 34, 48, 0.2) 48%,
+                  rgba(11, 34, 48, 0.05) 58%,
+                  transparent 68%
+                ),
+                linear-gradient(
+                  210deg,
+                  rgba(209, 112, 77, 0.35) 0%,
+                  rgba(209, 112, 77, 0.08) 40%,
+                  transparent 60%
+                ),
+                linear-gradient(
+                  to bottom,
+                  rgba(11, 34, 48, 0.45) 0%,
+                  transparent 45%,
+                  rgba(11, 34, 48, 0.75) 100%
+                ),
+                radial-gradient(
+                  120% 80% at 85% 45%,
+                  transparent 35%,
+                  rgba(11, 34, 48, 0.5) 100%
+                )
+              `,
             }}
+            aria-hidden
           />
         </div>
 
@@ -61,10 +110,15 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="px-10 py-20 border border-[#D1704D]">
+      <section className="relative px-10 pt-20 pb-20 border-t border-x border-[#D1704D]">
         <p className="text-[#D1704D] tracking-widest text-xs mb-2">OUR EXPERTISE</p>
-        <h2 className="text-3xl md:text-4xl font-bold">Practice Areas</h2>
-        <div className="w-15 h-0.75 bg-[#D1704D] mt-3 mb-12" />
+        <h2 className="font-display text-3xl font-semibold leading-tight tracking-tight text-[#0b2230] dark:text-white md:text-4xl">
+          Practice Areas
+        </h2>
+        <div
+          className="w-15 h-0.75 bg-[#D1704D] mt-3 mb-12 block animate-line-reveal animate-line-reveal-delay-150"
+          aria-hidden
+        />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-12">
           {practiceAreasHome.map((a) => (
@@ -87,6 +141,11 @@ export function HomePage() {
             VIEW PRACTICE AREAS
           </Link>
         </div>
+
+        <div
+          className="pointer-events-none absolute bottom-0 left-0 right-0 z-10 h-px bg-[#D1704D] animate-line-reveal animate-line-reveal-delay-300"
+          aria-hidden
+        />
       </section>
     </>
   );

@@ -11,23 +11,85 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const cardBase =
-  "border border-[#0b2230]/20 dark:border-white/10 bg-white dark:bg-[#0d2438] rounded-sm p-8 hover:border-[#D1704D] dark:hover:border-[#D1704D] transition-colors duration-300";
+  "border border-[#0b2230]/20 dark:border-white/10 bg-[#f8f6f2] dark:bg-[#0d2438] rounded-sm p-8 hover:border-[#D1704D] dark:hover:border-[#D1704D] transition-colors duration-300";
 
 const numBadge =
-  "text-[#D1704D] border border-[#D1704D] text-xs tracking-widest px-2.5 py-2 bg-[#383e44]/10 dark:bg-[#383e44] mb-8 inline-block";
+  "mb-8 self-start inline-flex h-8 min-w-8 w-fit shrink-0 items-center justify-center border border-[#D1704D] bg-[#383e44]/10 px-1.5 text-[11px] font-bold tabular-nums leading-none tracking-normal text-[#D1704D] dark:bg-[#383e44]";
 
 const bodyClass =
   "text-[#0b2230]/60 dark:text-[#8fa3b1] text-sm tracking-wider leading-relaxed";
+
+const practiceAreas = [
+  {
+    num: "01",
+    icon: Briefcase,
+    title: "Corporate and Commercial",
+    desc: "We provide comprehensive legal support on business transactions, contract drafting and negotiation, and corporate governance matters.",
+  },
+  {
+    num: "02",
+    icon: Landmark,
+    title: "Banking and Finance",
+    desc: "We provide expert legal guidance on financial transactions, ensuring compliance within regulatory frameworks.",
+  },
+  {
+    num: "03",
+    icon: Radio,
+    title: "Telecom, Media and Technologies (TMT)",
+    desc: "We deliver tailored legal solutions for clients in the technology, media, and telecommunications sectors.",
+  },
+  {
+    num: "04",
+    icon: Search,
+    title: "Legal Due Diligence",
+    desc: "We conduct comprehensive legal due diligence in support of mergers, acquisitions, investments, and regulatory compliance. Our meticulous approach enables clients to identify and manage risks effectively, and to make well-informed decisions.",
+  },
+  {
+    num: "05",
+    icon: Users,
+    title: "Labour/Employment",
+    desc: "We provide specialized legal advice across all aspects of employment law, including drafting and reviewing employment contracts and HR policies, advising on organizational restructuring, and labour disputes resolution.",
+  },
+  {
+    num: "06",
+    icon: Scale,
+    title: "Commercial Litigation and Commercial Arbitration",
+    desc: "We assist clients in resolving commercial disputes through expert legal counsel and strategic negotiation as well as representation in litigation and arbitration proceedings.",
+  },
+  {
+    num: "07",
+    icon: Calculator,
+    title: "Taxation",
+    desc: "We provide legal guidance for tax compliance and optimization.",
+  },
+];
+
+function PracticeAreaCard({ num, icon: Icon, title, desc }) {
+  return (
+    <div className={`${cardBase} flex h-full min-h-0 w-full flex-col`}>
+      <span className={numBadge}>{num}</span>
+      <div className="mb-5 shrink-0">
+        <Icon className="w-10 h-10 text-[#D1704D]" strokeWidth={1.25} />
+      </div>
+      <h3 className="mb-3 shrink-0 font-display text-xl font-semibold leading-snug tracking-tight text-[#0b2230] dark:text-white md:text-[1.35rem]">
+        {title}
+      </h3>
+      <p className={`${bodyClass} min-h-0 flex-1`}>{desc}</p>
+    </div>
+  );
+}
 
 export function PracticeAreasPage() {
   useEffect(() => {
     document.title = "Practice Areas — Paragon Law";
   }, []);
 
+  const [a1, a2, a3, a4, a5, a6, a7] = practiceAreas;
+
   return (
     <>
       <div className="px-10 mt-16 mb-12">
-        <h1 className="text-4xl md:text-6xl text-[#0b2230] dark:text-white mb-6 font-bold">
+        <h1 className="font-display text-4xl font-medium leading-[1.1] tracking-tight text-[#0b2230] dark:text-white md:text-6xl mb-6">
           Practice Areas
         </h1>
         <p className="text-[#0b2230]/60 dark:text-[#aea9a9] text-base md:text-lg tracking-wide max-w-xl">
@@ -37,102 +99,24 @@ export function PracticeAreasPage() {
       </div>
 
       <section className="px-10 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-          <div className={cardBase}>
-            <span className={numBadge}>01</span>
-            <div className="mb-5">
-              <Briefcase className="w-10 h-10 text-[#D1704D]" strokeWidth={1.25} />
-            </div>
-            <h3 className="text-lg font-bold mb-3">Corporate and Commercial</h3>
-            <p className={bodyClass}>
-              We provide comprehensive legal support on business transactions,
-              contract drafting and negotiation, and corporate governance matters.
-            </p>
-          </div>
-
-          <div className={cardBase}>
-            <span className={numBadge}>02</span>
-            <div className="mb-5">
-              <Landmark className="w-10 h-10 text-[#D1704D]" strokeWidth={1.25} />
-            </div>
-            <h3 className="text-lg font-bold mb-3">Banking and Finance</h3>
-            <p className={bodyClass}>
-              We provide expert legal guidance on financial transactions, ensuring
-              compliance within regulatory frameworks.
-            </p>
-          </div>
-
-          <div className={cardBase}>
-            <span className={numBadge}>03</span>
-            <div className="mb-5">
-              <Radio className="w-10 h-10 text-[#D1704D]" strokeWidth={1.25} />
-            </div>
-            <h3 className="text-lg font-bold mb-3">
-              Telecom, Media and Technologies (TMT)
-            </h3>
-            <p className={bodyClass}>
-              We deliver tailored legal solutions for clients in the technology,
-              media, and telecommunications sectors.
-            </p>
-          </div>
+        <div className="grid grid-cols-1 items-stretch gap-4 md:grid-cols-3 mb-4">
+          <PracticeAreaCard {...a1} />
+          <PracticeAreaCard {...a2} />
+          <PracticeAreaCard {...a3} />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-          <div className={`md:col-span-2 ${cardBase}`}>
-            <span className={numBadge}>04</span>
-            <div className="mb-5">
-              <Search className="w-10 h-10 text-[#D1704D]" strokeWidth={1.25} />
-            </div>
-            <h3 className="text-lg font-bold mb-3">Legal Due Diligence</h3>
-            <p className={bodyClass}>
-              We conduct comprehensive legal due diligence in support of mergers,
-              acquisitions, investments, and regulatory compliance. Our meticulous
-              approach enables clients to identify and manage risks effectively, and
-              to make well-informed decisions.
-            </p>
+        <div className="grid grid-cols-1 items-stretch gap-4 md:grid-cols-3 mb-4">
+          <div className="flex h-full min-h-0 w-full md:col-span-2">
+            <PracticeAreaCard {...a4} />
           </div>
-
-          <div className={cardBase}>
-            <span className={numBadge}>05</span>
-            <div className="mb-5">
-              <Users className="w-10 h-10 text-[#D1704D]" strokeWidth={1.25} />
-            </div>
-            <h3 className="text-lg font-bold mb-3">Labour/Employment</h3>
-            <p className={bodyClass}>
-              We provide specialized legal advice across all aspects of employment
-              law, including drafting and reviewing employment contracts and HR
-              policies, advising on organizational restructuring, and labour
-              disputes resolution.
-            </p>
-          </div>
+          <PracticeAreaCard {...a5} />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className={`md:col-span-2 ${cardBase}`}>
-            <span className={numBadge}>06</span>
-            <div className="mb-5">
-              <Scale className="w-10 h-10 text-[#D1704D]" strokeWidth={1.25} />
-            </div>
-            <h3 className="text-lg font-bold mb-3">
-              Commercial Litigation and Commercial Arbitration
-            </h3>
-            <p className={bodyClass}>
-              We assist clients in resolving commercial disputes through expert legal
-              counsel and strategic negotiation as well as representation in
-              litigation and arbitration proceedings.
-            </p>
+        <div className="grid grid-cols-1 items-stretch gap-4 md:grid-cols-3">
+          <div className="flex h-full min-h-0 w-full md:col-span-2">
+            <PracticeAreaCard {...a6} />
           </div>
-
-          <div className={cardBase}>
-            <span className={numBadge}>07</span>
-            <div className="mb-5">
-              <Calculator className="w-10 h-10 text-[#D1704D]" strokeWidth={1.25} />
-            </div>
-            <h3 className="text-lg font-bold mb-3">Taxation</h3>
-            <p className={bodyClass}>
-              We provide legal guidance for tax compliance and optimization.
-            </p>
-          </div>
+          <PracticeAreaCard {...a7} />
         </div>
       </section>
 
