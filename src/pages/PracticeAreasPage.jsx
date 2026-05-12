@@ -1,10 +1,8 @@
 import {
   Briefcase,
-  Calculator,
   Landmark,
   Radio,
   Scale,
-  Search,
   Shield,
   Users,
 } from "lucide-react";
@@ -24,13 +22,13 @@ const practiceAreas = [
   {
     num: "01",
     icon: Briefcase,
-    title: "Corporate and Commercial",
-    desc: "We provide comprehensive legal support on business transactions, contract drafting and negotiation, and corporate governance matters.",
+    title: "Corporate and commercial",
+    desc: "We provide comprehensive legal support on business transactions, contract drafting and negotiation, corporate governance, legal due diligence and regulatory compliance.",
   },
   {
     num: "02",
     icon: Landmark,
-    title: "Banking and Finance",
+    title: "Banking and finance",
     desc: "We provide expert legal guidance on financial transactions, ensuring compliance within regulatory frameworks.",
   },
   {
@@ -41,9 +39,9 @@ const practiceAreas = [
   },
   {
     num: "04",
-    icon: Search,
-    title: "Legal Due Diligence",
-    desc: "We conduct comprehensive legal due diligence in support of mergers, acquisitions, investments, and regulatory compliance. Our meticulous approach enables clients to identify and manage risks effectively, and to make well-informed decisions.",
+    icon: Shield,
+    title: "Data protection",
+    desc: "We advise and assist on all legal and regulatory matters relating to data protection.",
   },
   {
     num: "05",
@@ -54,20 +52,8 @@ const practiceAreas = [
   {
     num: "06",
     icon: Scale,
-    title: "Commercial Litigation and Commercial Arbitration",
+    title: "Commercial litigation and Commercial Arbitration",
     desc: "We assist clients in resolving commercial disputes through expert legal counsel and strategic negotiation as well as representation in litigation and arbitration proceedings.",
-  },
-  {
-    num: "07",
-    icon: Calculator,
-    title: "Taxation",
-    desc: "We provide legal guidance for tax compliance and optimization.",
-  },
-  {
-    num: "08",
-    icon: Shield,
-    title: "Data protection",
-    desc: "We advise and assist on all legal and regulatory matters relating to data protection.",
   },
 ];
 

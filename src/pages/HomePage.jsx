@@ -13,73 +13,91 @@ export function HomePage() {
 
   return (
     <>
-      <section className="relative mb-14 flex min-h-0 items-stretch overflow-hidden bg-[#f0ede6] px-6 pb-10 pt-0 dark:bg-transparent sm:px-10 md:min-h-[85vh] md:pb-0">
-        {/* Full-height left fill: section has no bottom padding so abs layers reach true bottom (pb used to leave an unfilled strip) */}
+      <section className="relative mb-14 flex min-h-0 flex-col overflow-hidden bg-[#f0ede6] dark:bg-transparent md:min-h-[85vh] md:flex-row">
+        {/* Left reading strip — cream (light) / navy (dark). Same width & overlap as light so copy floats onto the photo the same way. */}
         <div
-          className="pointer-events-none absolute -top-px bottom-0 left-0 z-[1] hidden w-[48%] bg-[#f0ede6] dark:bg-[#0b2230] md:block"
+          className="pointer-events-none absolute inset-y-0 left-0 `Z-1` hidden w-1/2 bg-[#f0ede6] dark:bg-[#0b2230] md:block"
           aria-hidden
         />
-        {/* Right: letterboxing behind cover image matches page / dark shell */}
-        <div className="hidden md:block absolute -top-px bottom-0 right-0 left-[43%] z-[2] isolate bg-[#f0ede6] dark:bg-[#0b2230]">
+
+        <div className="hidden md:block absolute inset-y-0 right-0 z-0 w-1/2 isolate overflow-hidden">
           <img
             src={homePicUrl}
             alt="Paragon Law"
             className="absolute inset-0 h-full w-full object-cover object-[center_40%]"
           />
-          {/* Light: layered linear grads on home-pic — cream join, soft depth, hint of brand warmth */}
           <div
             className="pointer-events-none absolute inset-0 dark:hidden"
             style={{
               background: `
-                linear-gradient(180deg, rgba(240, 237, 230, 0.5) 0%, rgba(240, 237, 230, 0.12) 14%, transparent 30%),
-                linear-gradient(100deg, rgba(240, 237, 230, 0.7) 0%, rgba(240, 237, 230, 0.28) 16%, rgba(240, 237, 230, 0.06) 32%, transparent 46%),
-                linear-gradient(200deg, rgba(209, 112, 77, 0.2) 0%, rgba(209, 112, 77, 0.05) 38%, transparent 58%),
-                linear-gradient(to bottom, transparent 52%, rgba(11, 34, 48, 0.07) 100%)
+                linear-gradient(
+                  100deg,
+                  rgba(240, 237, 230, 0.55) 0%,
+                  rgba(240, 237, 230, 0.12) 18%,
+                  transparent 36%
+                ),
+                linear-gradient(
+                  to bottom,
+                  transparent 55%,
+                  rgba(11, 34, 48, 0.12) 100%
+                )
               `,
             }}
             aria-hidden
           />
-          {/* Dark: navy veil + join + warm accent + gentle floor */}
           <div
             className="pointer-events-none absolute inset-0 hidden dark:block"
             style={{
               background: `
-                linear-gradient(180deg, rgba(11, 34, 48, 0.65) 0%, rgba(11, 34, 48, 0.2) 16%, transparent 34%),
-                linear-gradient(100deg, rgba(11, 34, 48, 0.9) 0%, rgba(11, 34, 48, 0.5) 18%, rgba(11, 34, 48, 0.12) 36%, transparent 50%),
-                linear-gradient(210deg, rgba(209, 112, 77, 0.28) 0%, rgba(209, 112, 77, 0.06) 40%, transparent 62%),
-                linear-gradient(to bottom, transparent 48%, rgba(11, 34, 48, 0.65) 100%)
+                linear-gradient(
+                  100deg,
+                  rgba(11, 34, 48, 0.5) 0%,
+                  rgba(11, 34, 48, 0.12) 20%,
+                  transparent 38%
+                ),
+                linear-gradient(
+                  to bottom,
+                  transparent 50%,
+                  rgba(11, 34, 48, 0.55) 100%
+                )
               `,
             }}
             aria-hidden
           />
         </div>
 
-        <div className="relative z-10 flex w-full max-w-3xl flex-col justify-start bg-[#f0ede6] pt-8 pb-2 dark:bg-[#0b2230] sm:pt-10 md:max-w-none md:w-[46%] md:shrink-0 md:justify-end md:self-stretch md:bg-transparent md:pt-20 md:pb-0 md:pr-4">
-          <p className="text-[#D1704D] tracking-widest text-xs sm:text-sm mb-3 sm:mb-4">
+        <div className="relative z-10 flex min-h-0 w-full flex-col justify-start bg-[#f0ede6] px-6 pb-10 pt-5 dark:bg-[#0b2230] max-sm:px-4 max-sm:pb-8 max-sm:pt-4 sm:px-10 sm:pt-6 md:min-h-[85vh] md:w-[58%] md:max-w-none md:justify-start md:self-stretch md:bg-transparent md:dark:bg-transparent md:px-10 md:pb-14 md:pt-12 md:pr-6 lg:pr-10">
+          <p className="text-[#D1704D] tracking-widest text-xs sm:text-sm mb-2 sm:mb-3 md:-mt-1">
             PARAGON LAW — KIGALI, RWANDA
           </p>
 
-          <h1 className="font-display text-4xl font-semibold leading-[1.08] tracking-wide text-[#0b2230] dark:text-white sm:text-5xl md:text-7xl md:leading-[1.05]">
-            WELCOME TO <br />
-            <span className="text-[#D1704D]">PARAGON LAW</span>
+          <h1 className=" md:mt-4  mt-12  font-display hyphens-none font-semibold leading-[0.98] tracking-wide text-[#0b2230] drop-shadow-sm dark:text-white dark:drop-shadow-md max-md:text-[clamp(2rem,6vw+0.5rem,3rem)] md:text-[clamp(3rem,6.5vw+1.1rem,8rem)]">
+            <span className="block max-md:whitespace-normal md:inline-block md:whitespace-nowrap">
+              WELCOME TO{" "}
+            </span>
+            <span className="block max-md:whitespace-normal text-[#D1704D] md:inline-block md:whitespace-nowrap">
+              PARAGON LAW
+            </span>
           </h1>
 
-          <p className="mt-4 max-w-md text-base text-[#4a6070] dark:text-[#C2C7CB] sm:mt-6 sm:text-lg md:text-2xl">
+          <p className="mt-8 max-w-none text-pretty text-base leading-snug text-[#4a6070] drop-shadow-sm dark:text-[#C2C7CB] dark:drop-shadow-md sm:mt-6 sm:text-lg md:mt-8 md:text-2xl md:leading-relaxed">
             We deliver tailored legal solutions to meet your legal needs and
             support your business success.
           </p>
 
           <Link
             to="/about"
-            className="mt-8 border-2 border-[#D1704D] px-6 py-3 text-[#D1704D] dark:border-[#FFFFFF] dark:text-[#FFFFFF] w-fit hover:bg-[#0b2230] hover:text-white dark:hover:bg-transparent dark:hover:text-[#FFFFFF] transition-colors inline-block text-center"
+            className="mt-10 w-fit border-2 border-[#D1704D] bg-[#f0ede6]/80 px-6 py-3 text-center text-[#D1704D] backdrop-blur-[2px] transition-colors hover:bg-[#0b2230] hover:text-white dark:border-white dark:bg-transparent dark:text-white dark:backdrop-blur-none dark:hover:bg-white/10 dark:hover:text-white"
           >
             LEARN MORE
           </Link>
         </div>
       </section>
 
-      <section className="relative border-x border-t border-[#D1704D] px-10 pb-20 pt-8">
-        <p className="text-[#D1704D] tracking-widest text-xs mb-2">OUR EXPERTISE</p>
+      <section className="relative border-x border-t border-[#D1704D] px-10 pb-20 pt-8 max-sm:px-4">
+        <p className="text-[#D1704D] tracking-widest text-xs mb-2">
+          OUR EXPERTISE
+        </p>
         <h2 className="font-display text-3xl font-semibold leading-tight tracking-tight text-[#0b2230] dark:text-white md:text-4xl">
           Practice Areas
         </h2>
@@ -90,11 +108,7 @@ export function HomePage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-12">
           {practiceAreasHome.map((a) => (
-            <Link
-              key={a.num}
-              to="/practice-areas"
-              className={cardClass}
-            >
+            <Link key={a.num} to="/practice-areas" className={cardClass}>
               <span className="text-[#D1704D] text-xs font-bold">{a.num}</span>
               {a.title}
             </Link>
@@ -104,7 +118,7 @@ export function HomePage() {
         <div className="text-center">
           <Link
             to="/practice-areas"
-            className="border border-[#D1704D] text-[#D1704D] px-10 py-4 text-xs tracking-widest font-bold hover:bg-[#D1704D] hover:text-white transition-colors inline-block"
+            className="border border-[#D1704D] text-[#D1704D] px-10 py-4 text-xs tracking-widest font-bold hover:bg-[#D1704D] hover:text-white transition-colors inline-block max-sm:max-w-full max-sm:px-6"
           >
             VIEW PRACTICE AREAS
           </Link>
