@@ -13,7 +13,7 @@ const areas = [
   {
     num: "02",
     icon: Landmark,
-    title: "Banking and Finance",
+    title: "Banking and finance",
     desc: "We provide expert legal guidance on financial transactions, ensuring compliance within regulatory frameworks.",
   },
   {
@@ -37,7 +37,7 @@ const areas = [
   {
     num: "06",
     icon: Scale,
-    title: "Commercial Litigation and Commercial Arbitration",
+    title: "Commercial litigation and Commercial Arbitration",
     desc: "We assist clients in resolving commercial disputes through expert legal counsel and strategic negotiation as well as representation in litigation and arbitration proceedings.",
   },
 ];

@@ -1,23 +1,19 @@
 export const practiceAreaNames = [
-  "Corporate & Commercial",
-  "Banking & Finance",
+  "Corporate and commercial",
+  "Banking and finance",
   "Telecom, Media and Technologies (TMT)",
-  "Legal Due Diligence",
-  "Labour/Employment",
-  "Commercial Litigation & Arbitration",
-  "Taxation",
   "Data protection",
+  "Labour/Employment",
+  "Commercial litigation and Commercial Arbitration",
 ];
 
 export const practiceAreasHome = [
-  { num: "01", title: "Corporate & Commercial" },
-  { num: "02", title: "Banking & Finance" },
+  { num: "01", title: "Corporate and commercial" },
+  { num: "02", title: "Banking and finance" },
   { num: "03", title: "Telecom, Media and Technologies (TMT)" },
-  { num: "04", title: "Legal Due Diligence" },
+  { num: "04", title: "Data protection" },
   { num: "05", title: "Labour/Employment" },
-  { num: "06", title: "Commercial Litigation and Commercial Arbitration" },
-  { num: "07", title: "Taxation" },
-  { num: "08", title: "Data protection" },
+  { num: "06", title: "Commercial litigation and Commercial Arbitration" },
 ];
 
 export const siteContact = {
