@@ -66,11 +66,14 @@ export function HomePage() {
 
             <Reveal delay={0.26}>
               <p
-                className={`mt-8 text-[18px] leading-[1.6] max-w-[560px] ${isDark ? "text-[#9ca3af]" : "text-[#4b5563]"
+                className={`mt-8 text-[17px] md:text-[18px] leading-[1.75] max-w-[620px] ${isDark ? "text-[#9ca3af]" : "text-[#4b5563]"
                   }`}
               >
-                We deliver tailored legal solutions to meet your legal needs and
-                support your business success.
+                We offer comprehensive legal solutions, counsel, and assistance
+                for individuals and businesses, designed to advance your personal
+                and commercial objectives. Based in Kigali, we serve clients
+                across Rwanda and internationally, delivering strategic, reliable,
+                and results-driven legal support.
               </p>
             </Reveal>
 

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { Moon, Sun, Menu, X } from "lucide-react";
+import { Moon, Sun, Menu, X, Phone } from "lucide-react";
+import { motion } from "framer-motion";
 import { useTheme } from "../../contexts/ThemeContext";
 import logoDark from "../../assets/PL LOGO MAIN-dark.svg";
 import logoLight from "../../assets/PL LOGO MAIN.svg";
@@ -26,12 +27,18 @@ export function SiteHeader() {
   }, [mobileOpen]);
 
   const navLinkClass = ({ isActive }) =>
-    `text-[11px] tracking-[1.44px] uppercase transition-colors duration-200 whitespace-nowrap ${isActive
+    `relative text-[11px] tracking-[1.44px] uppercase transition-colors duration-300 whitespace-nowrap py-1 ${isActive
       ? "text-[#d1704d] font-bold"
       : isDark
         ? "text-[#9ca3af] hover:text-white font-medium"
         : "text-[#4b5563] hover:text-[#d1704d] font-medium"
     }`;
+
+  const navLinks = [
+    { to: "/", label: "Home", end: true },
+    { to: "/about", label: "About" },
+    { to: "/practice-areas", label: "Practice Areas" },
+  ];
 
   return (
     <>
@@ -45,7 +52,7 @@ export function SiteHeader() {
             : "bg-white border-b border-gray-100"
           }`}
       >
-        <div className="max-w-[1280px] mx-auto px-8 h-full flex items-center justify-between">
+        <div className="max-w-[1280px] mx-auto px-4 md:px-8 h-full flex items-center justify-between">
           <NavLink to="/" className="flex-shrink-0 flex items-center py-[6px]">
             <img
               src={isDark ? logoDark : logoLight}
@@ -55,41 +62,63 @@ export function SiteHeader() {
           </NavLink>
 
           <nav className="hidden md:flex items-center gap-10">
-            <NavLink to="/" end className={navLinkClass}>Home</NavLink>
-            <NavLink to="/about" className={navLinkClass}>About</NavLink>
-            <NavLink to="/practice-areas" className={navLinkClass}>Practice Areas</NavLink>
+            {navLinks.map(({ to, label, end }) => (
+              <NavLink key={to} to={to} end={end} className={navLinkClass}>
+                {({ isActive }) => (
+                  <>
+                    {label}
+                    {isActive && (
+                      <motion.div
+                        layoutId="navUnderline"
+                        className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#d1704d]"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                  </>
+                )}
+              </NavLink>
+            ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-5">
+          <div className="flex items-center gap-2 md:gap-5">
             <button
               onClick={toggleTheme}
               aria-label="Toggle theme"
               className={`p-2 rounded-full transition-colors duration-200 ${isDark ? "text-[#9ca3af] hover:text-[#d1704d]" : "text-[#6b7280] hover:text-[#d1704d]"
                 }`}
             >
-              {isDark ? <Sun size={17} /> : <Moon size={17} />}
+              {isDark ? <Sun size={18} /> : <Moon size={18} />}
             </button>
 
             <NavLink
               to="/contact"
-              className={`flex items-center gap-2 border px-6 py-[13px] text-[12px] tracking-[0.65px] uppercase font-medium transition-all duration-300 ${isDark
-                  ? "border-[#d1704d] text-[#d1704d] hover:bg-[#d1704d]/10"
-                  : "border-[#d1704d] text-[#d1704d] hover:bg-[#d1704d]/10"
+              className={`md:hidden p-2 transition-colors duration-200 ${isDark ? "text-[#9ca3af] hover:text-[#d1704d]" : "text-[#6b7280] hover:text-[#d1704d]"
+                }`}
+              aria-label="Contact Us"
+            >
+              <Phone size={18} />
+            </NavLink>
+
+            <NavLink
+              to="/contact"
+              className={`hidden md:flex items-center gap-2 border px-6 py-[13px] text-[12px] tracking-[0.65px] uppercase font-medium transition-all duration-300 ${isDark
+                ? "border-[#d1704d] text-[#d1704d] hover:bg-[#d1704d]/10"
+                : "border-[#d1704d] text-[#d1704d] hover:bg-[#d1704d]/10"
                 }`}
             >
               Get in Touch
               <span className="text-[16px] leading-none">→</span>
             </NavLink>
-          </div>
 
-          <button
-            className={`md:hidden p-2 transition-colors duration-200 ${isDark ? "text-[#d1d5dc]" : "text-[#1a2332]"
-              }`}
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle mobile menu"
-          >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
+            <button
+              className={`md:hidden p-2 transition-colors duration-200 ${isDark ? "text-[#d1d5dc]" : "text-[#1a2332]"
+                }`}
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="Toggle mobile menu"
+            >
+              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </header>
 
@@ -124,14 +153,6 @@ export function SiteHeader() {
               </NavLink>
             ))}
           </nav>
-          <div className="px-8 pt-10 flex items-center gap-4">
-            <button
-              onClick={() => { toggleTheme(); setMobileOpen(false); }}
-              className={`p-2 ${isDark ? "text-[#9ca3af]" : "text-[#6b7280]"}`}
-            >
-              {isDark ? <Sun size={18} /> : <Moon size={18} />}
-            </button>
-          </div>
         </div>
       )}
     </>
