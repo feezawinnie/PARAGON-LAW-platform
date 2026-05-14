@@ -8,19 +8,58 @@ const inputBase =
 export function ContactPage() {
   const { isDark } = useTheme();
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+  const [emailError, setEmailError] = useState("");
   const [sent, setSent] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState(false);
 
   const inputColor = isDark
     ? "border-[#4a5565] text-[#d1d5dc] focus:border-[#d1704d]"
     : "border-gray-300 text-[#1a2332] focus:border-[#d1704d]";
 
-  const onChange = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
+  const onChange = (e) => {
+    if (e.target.name === "email") setEmailError("");
+    setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
+  };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    setSent(true);
-    setTimeout(() => setSent(false), 4000);
-    setForm({ name: "", email: "", subject: "", message: "" });
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(form.email)) {
+      setEmailError("Please enter a valid email address.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setError(false);
+
+    const formData = new FormData();
+    formData.append("access_key", "7fa3f9aa-8a45-48e7-8b41-384a55eea27a"); // REPLACE THIS WITH YOUR REAL ACCESS KEY
+    formData.append("name", form.name);
+    formData.append("email", form.email);
+    formData.append("subject", form.subject);
+    formData.append("message", form.message);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      if (response.ok) {
+        setSent(true);
+        setTimeout(() => setSent(false), 5000);
+        setForm({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setError(true);
+      }
+    } catch (err) {
+      console.error("Form submission error:", err);
+      setError(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -144,6 +183,12 @@ export function ContactPage() {
                 </div>
               )}
 
+              {error && (
+                <div className="mb-6 px-5 py-4 bg-red-500/10 border border-red-500/30 text-red-500 text-[13px] tracking-[0.3px]">
+                  Something went wrong. Please try again or email us directly.
+                </div>
+              )}
+
               <form onSubmit={onSubmit} className="flex flex-col gap-8">
                 {[
                   { name: "name", label: "Your Name", type: "text", placeholder: "Full name" },
@@ -164,8 +209,11 @@ export function ContactPage() {
                       onChange={onChange}
                       required
                       placeholder={placeholder}
-                      className={`${inputBase} ${inputColor}`}
+                      className={`${inputBase} ${inputColor} ${name === "email" && emailError ? "!border-red-500" : ""}`}
                     />
+                    {name === "email" && emailError && (
+                      <p className="mt-2 text-red-500 text-[11px] tracking-[0.3px]">{emailError}</p>
+                    )}
                   </div>
                 ))}
 
@@ -189,12 +237,13 @@ export function ContactPage() {
 
                 <button
                   type="submit"
+                  disabled={isSubmitting}
                   className={`w-full py-4 text-[12px] tracking-[1.4px] uppercase font-bold transition-all duration-300 border-2 ${isDark
-                      ? "border-[#d1704d] text-[#d1704d] hover:bg-[#d1704d]/10"
-                      : "border-[#0a1f2e] text-[#0a1f2e] hover:bg-[#0a1f2e]/5"
+                    ? "border-[#d1704d] text-[#d1704d] hover:bg-[#d1704d]/10 disabled:opacity-50 disabled:cursor-not-allowed"
+                    : "border-[#0a1f2e] text-[#0a1f2e] hover:bg-[#0a1f2e]/5 disabled:opacity-50 disabled:cursor-not-allowed"
                     }`}
                 >
-                  Send Message
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </button>
               </form>
             </div>
