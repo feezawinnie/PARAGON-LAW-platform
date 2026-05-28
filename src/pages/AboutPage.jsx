@@ -88,17 +88,17 @@ export function AboutPage() {
 
             <Reveal direction="up" delay={0.25}>
               <div className="flex flex-col gap-8">
-                <p className={`text-[18px] md:text-[20px] leading-[1.8] font-medium ${isDark ? "text-white/90" : "text-[#0a1f2e]/90"}`}>
+                <p className={`text-[18px] md:text-[20px] leading-[1.8] ${bodyColor}`}>
                   Paragon Law is a boutique law firm providing top quality and
                   specialized legal services to clients across all sectors of the
                   economy.
                 </p>
-                <p className={`text-[18px] leading-[1.85] font-medium ${isDark ? "text-white/90" : "text-[#0a1f2e]/90"}`}>
+                <p className={`text-[18px] leading-[1.85] ${bodyColor}`}>
                   We are a team of experienced and dynamic legal professionals
                   and we offer our clients personalized solutions tailored to
                   their needs.
                 </p>
-                <p className={`text-[18px] leading-[1.85] font-medium ${isDark ? "text-white/90" : "text-[#0a1f2e]/90"}`}>
+                <p className={`text-[18px] leading-[1.85] ${bodyColor}`}>
                   Our expertise covers various areas, including Corporate and
                   Commercial matters, Banking and Finance, Labour/Employment,
                   Telecommunications, Media and Technologies (TMT), Data
@@ -166,12 +166,15 @@ export function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             <Reveal direction="left" delay={0.08}>
               <div
-                className={`relative flex flex-col h-full p-10 overflow-hidden ${isDark
-                  ? "bg-[#0b2b3d] border border-[rgba(209,112,77,0.15)]"
-                  : "bg-white border border-gray-100 shadow-sm"
+                className={`group relative flex flex-col h-full p-10 overflow-hidden transition-all duration-500 ${isDark
+                  ? "bg-[#0b2b3d]/40 border border-white/5 hover:border-[#d1704d]/40"
+                  : "bg-white border border-gray-100 hover:border-[#d1704d]/30 hover:shadow-xl hover:shadow-[#d1704d]/5"
                   }`}
               >
-                <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#d1704d]" />
+                <div
+                  className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#d1704d] scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out"
+                  style={{ transformOrigin: "top" }}
+                />
                 <div className="flex flex-col gap-6 pl-2">
                   <div className="text-[#d1704d]">
                     <Compass size={32} strokeWidth={1.5} />
@@ -189,15 +192,18 @@ export function AboutPage() {
                 </div>
               </div>
             </Reveal>
-
+ 
             <Reveal direction="right" delay={0.16}>
               <div
-                className={`relative flex flex-col h-full p-10 overflow-hidden ${isDark
-                  ? "bg-[#0b2b3d] border border-[rgba(209,112,77,0.15)]"
-                  : "bg-white border border-gray-100 shadow-sm"
+                className={`group relative flex flex-col h-full p-10 overflow-hidden transition-all duration-500 ${isDark
+                  ? "bg-[#0b2b3d]/40 border border-white/5 hover:border-[#d1704d]/40"
+                  : "bg-white border border-gray-100 hover:border-[#d1704d]/30 hover:shadow-xl hover:shadow-[#d1704d]/5"
                   }`}
               >
-                <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#d1704d]" />
+                <div
+                  className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#d1704d] scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out"
+                  style={{ transformOrigin: "top" }}
+                />
                 <div className="flex flex-col gap-6 pl-2">
                   <div className="text-[#d1704d]">
                     <Target size={32} strokeWidth={1.5} />

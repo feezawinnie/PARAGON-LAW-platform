@@ -42,7 +42,7 @@ export function SiteFooter() {
               className="h-[120px] w-auto object-contain object-left"
             />
             <p className={`${textColor} text-[15px] leading-[1.7] max-w-[240px]`}>
-              Law firm based in Kigali, providing specialized legal services across
+              A Law Firm based in Kigali, providing specialized legal services across
               Rwanda and globally.
             </p>
           </div>

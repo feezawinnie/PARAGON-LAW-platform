@@ -69,16 +69,17 @@ export function HomePage() {
                 className={`mt-8 text-[17px] md:text-[18px] leading-[1.75] max-w-[620px] ${isDark ? "text-[#9ca3af]" : "text-[#4b5563]"
                   }`}
               >
-                We offer comprehensive legal solutions, counsel, and assistance
-                for individuals and businesses, designed to advance your personal
-                and commercial objectives. Based in Kigali, we serve clients
-                across Rwanda and internationally, delivering strategic, reliable,
-                and results-driven legal support.
+                We are a Kigali-based legal practice that provides practical, reliable,
+                and client-focused support for personal and commercial matters. Our work
+                is grounded in professionalism, strict confidentiality, and a commitment
+                to helping clients make informed decisions. Whether you are an individual,
+                SME, NGO, or international investor, we combine local knowledge with
+                commercial sense to protect your interests and reduce legal risk.
               </p>
             </Reveal>
 
             <Reveal delay={0.38}>
-              <div className="mt-12">
+              <div className="mt-9">
                 <Link
                   to="/about"
                   className={`inline-flex items-center border-2 px-9 py-[18px] text-[13px] tracking-[1.4px] uppercase font-bold transition-all duration-300 ${isDark
