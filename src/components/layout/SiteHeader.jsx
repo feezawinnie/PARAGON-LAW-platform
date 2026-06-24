@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 import { Moon, Sun, Menu, X, Phone } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTheme } from "../../contexts/ThemeContext";
-import logoDark from "../../assets/PL LOGO MAIN-dark.svg";
-import logoLight from "../../assets/PL LOGO MAIN.svg";
+import logoDark from "../../assets/PL LOGO MAIN-dark-2.svg";
+import logoLight from "../../assets/PL LOGO MAIN-2.svg";
 
 export function SiteHeader() {
   const { isDark, toggleTheme } = useTheme();
@@ -28,10 +28,10 @@ export function SiteHeader() {
 
   const navLinkClass = ({ isActive }) =>
     `relative text-[11px] tracking-[1.44px] uppercase transition-colors duration-300 whitespace-nowrap py-1 ${isActive
-      ? "text-[#d1704d] font-bold"
+      ? "text-[#D97757] font-bold"
       : isDark
         ? "text-[#9ca3af] hover:text-white font-medium"
-        : "text-[#4b5563] hover:text-[#d1704d] font-medium"
+        : "text-[#4b5563] hover:text-[#D97757] font-medium"
     }`;
 
   const navLinks = [
@@ -45,8 +45,8 @@ export function SiteHeader() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 h-[100px] transition-all duration-300 ${isDark
           ? scrolled
-            ? "bg-[#0a1f2e]/95 backdrop-blur-md border-b border-[#d1704d]/20"
-            : "bg-[#0a1f2e] border-b border-[#d1704d]/20"
+            ? "bg-[#0a1f2e]/95 backdrop-blur-md border-b border-[#D97757]/20"
+            : "bg-[#0a1f2e] border-b border-[#D97757]/20"
           : scrolled
             ? "bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm"
             : "bg-white border-b border-gray-100"
@@ -70,7 +70,7 @@ export function SiteHeader() {
                     {isActive && (
                       <motion.div
                         layoutId="navUnderline"
-                        className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#d1704d]"
+                        className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#D97757]"
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
                     )}
@@ -84,7 +84,7 @@ export function SiteHeader() {
             <button
               onClick={toggleTheme}
               aria-label="Toggle theme"
-              className={`p-2 rounded-full transition-colors duration-200 ${isDark ? "text-[#9ca3af] hover:text-[#d1704d]" : "text-[#6b7280] hover:text-[#d1704d]"
+              className={`p-2 rounded-full transition-colors duration-200 ${isDark ? "text-[#9ca3af] hover:text-[#D97757]" : "text-[#6b7280] hover:text-[#D97757]"
                 }`}
             >
               {isDark ? <Sun size={18} /> : <Moon size={18} />}
@@ -92,7 +92,7 @@ export function SiteHeader() {
 
             <NavLink
               to="/contact"
-              className={`md:hidden p-2 transition-colors duration-200 ${isDark ? "text-[#9ca3af] hover:text-[#d1704d]" : "text-[#6b7280] hover:text-[#d1704d]"
+              className={`md:hidden p-2 transition-colors duration-200 ${isDark ? "text-[#9ca3af] hover:text-[#D97757]" : "text-[#6b7280] hover:text-[#D97757]"
                 }`}
               aria-label="Contact Us"
             >
@@ -102,8 +102,8 @@ export function SiteHeader() {
             <NavLink
               to="/contact"
               className={`hidden md:flex items-center gap-2 border px-6 py-[13px] text-[12px] tracking-[0.65px] uppercase font-medium transition-all duration-300 ${isDark
-                ? "border-[#d1704d] text-[#d1704d] hover:bg-[#d1704d]/10"
-                : "border-[#d1704d] text-[#d1704d] hover:bg-[#d1704d]/10"
+                ? "border-[#D97757] text-[#D97757] hover:bg-[#D97757]/10"
+                : "border-[#D97757] text-[#D97757] hover:bg-[#D97757]/10"
                 }`}
             >
               Get in Touch
@@ -142,7 +142,7 @@ export function SiteHeader() {
                 className={({ isActive }) =>
                   `text-[13px] tracking-[1.8px] uppercase font-medium border-b pb-6 transition-colors duration-200 ${isDark ? "border-white/10" : "border-gray-100"
                   } ${isActive
-                    ? "text-[#d1704d]"
+                    ? "text-[#D97757]"
                     : isDark
                       ? "text-[#d1d5dc]"
                       : "text-[#1a2332]"

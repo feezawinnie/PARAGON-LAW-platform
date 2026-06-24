@@ -63,7 +63,7 @@ export function AboutPage() {
 
         <div className="relative z-10 w-full max-w-[1280px] mx-auto px-8 py-28">
           <Reveal delay={0}>
-            <p className="text-[#d1704d] text-[11px] tracking-[2.4px] uppercase font-semibold mb-16">
+            <p className="text-[#D97757] text-[11px] tracking-[2.4px] uppercase font-semibold mb-16">
               About Paragon Law
             </p>
           </Reveal>
@@ -77,7 +77,7 @@ export function AboutPage() {
                 Who we are
               </h1>
               <motion.div
-                className="w-24 h-[4px] bg-[#d1704d]"
+                className="w-24 h-[4px] bg-[#D97757]"
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
@@ -117,7 +117,7 @@ export function AboutPage() {
       <section className={isDark ? "bg-[#0a1f2e]" : "bg-[#f8f7f5]"}>
         <div className="max-w-[1280px] mx-auto px-8 pt-24 pb-28">
           <Reveal delay={0.2}>
-            <p className="text-[#d1704d] text-[11px] tracking-[2.4px] uppercase font-semibold mb-14">
+            <p className="text-[#D97757] text-[11px] tracking-[2.4px] uppercase font-semibold mb-14">
               Our Core Values
             </p>
           </Reveal>
@@ -127,18 +127,18 @@ export function AboutPage() {
               <Reveal key={title} delay={0.05 * i} className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                 <div
                   className={`group relative h-full p-8 border transition-all duration-500 ${isDark
-                    ? "bg-[#0b2b3d]/40 border-white/5 hover:border-[#d1704d]/40"
-                    : "bg-white border-gray-100 hover:border-[#d1704d]/30 hover:shadow-xl hover:shadow-[#d1704d]/5"
+                    ? "bg-[#0b2b3d]/40 border-white/5 hover:border-[#D97757]/40"
+                    : "bg-white border-gray-100 hover:border-[#D97757]/30 hover:shadow-xl hover:shadow-[#D97757]/5"
                     }`}
                 >
                   <div
-                    className="absolute top-0 left-0 right-0 h-[2px] bg-[#d1704d] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"
+                    className="absolute top-0 left-0 right-0 h-[2px] bg-[#D97757] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"
                     style={{ transformOrigin: "left" }}
                   />
 
                   <div className="flex flex-col items-center text-center gap-6">
-                    <div className={`p-4 rounded-full transition-all duration-500 ${isDark ? "bg-[#0a1f2e] text-[#d1704d] group-hover:bg-[#d1704d] group-hover:text-white"
-                      : "bg-[#f8f7f5] text-[#d1704d] group-hover:bg-[#d1704d] group-hover:text-white"
+                    <div className={`p-4 rounded-full transition-all duration-500 ${isDark ? "bg-[#0a1f2e] text-[#D97757] group-hover:bg-[#D97757] group-hover:text-white"
+                      : "bg-[#f8f7f5] text-[#D97757] group-hover:bg-[#D97757] group-hover:text-white"
                       }`}>
                       <Icon size={28} strokeWidth={1.5} />
                     </div>
@@ -158,7 +158,7 @@ export function AboutPage() {
           </div>
 
           <Reveal delay={0}>
-            <p className="text-[#d1704d] text-[11px] tracking-[2.4px] uppercase font-semibold mb-14">
+            <p className="text-[#D97757] text-[11px] tracking-[2.4px] uppercase font-semibold mb-14">
               Our Vision & Mission
             </p>
           </Reveal>
@@ -167,16 +167,16 @@ export function AboutPage() {
             <Reveal direction="left" delay={0.08}>
               <div
                 className={`group relative flex flex-col h-full p-10 overflow-hidden transition-all duration-500 ${isDark
-                  ? "bg-[#0b2b3d]/40 border border-white/5 hover:border-[#d1704d]/40"
-                  : "bg-white border border-gray-100 hover:border-[#d1704d]/30 hover:shadow-xl hover:shadow-[#d1704d]/5"
+                  ? "bg-[#0b2b3d]/40 border border-white/5 hover:border-[#D97757]/40"
+                  : "bg-white border border-gray-100 hover:border-[#D97757]/30 hover:shadow-xl hover:shadow-[#D97757]/5"
                   }`}
               >
                 <div
-                  className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#d1704d] scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out"
+                  className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#D97757] scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out"
                   style={{ transformOrigin: "top" }}
                 />
                 <div className="flex flex-col gap-6 pl-2">
-                  <div className="text-[#d1704d]">
+                  <div className="text-[#D97757]">
                     <Compass size={32} strokeWidth={1.5} />
                   </div>
                   <div className="flex flex-col gap-4">
@@ -196,16 +196,16 @@ export function AboutPage() {
             <Reveal direction="right" delay={0.16}>
               <div
                 className={`group relative flex flex-col h-full p-10 overflow-hidden transition-all duration-500 ${isDark
-                  ? "bg-[#0b2b3d]/40 border border-white/5 hover:border-[#d1704d]/40"
-                  : "bg-white border border-gray-100 hover:border-[#d1704d]/30 hover:shadow-xl hover:shadow-[#d1704d]/5"
+                  ? "bg-[#0b2b3d]/40 border border-white/5 hover:border-[#D97757]/40"
+                  : "bg-white border border-gray-100 hover:border-[#D97757]/30 hover:shadow-xl hover:shadow-[#D97757]/5"
                   }`}
               >
                 <div
-                  className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#d1704d] scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out"
+                  className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#D97757] scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out"
                   style={{ transformOrigin: "top" }}
                 />
                 <div className="flex flex-col gap-6 pl-2">
-                  <div className="text-[#d1704d]">
+                  <div className="text-[#D97757]">
                     <Target size={32} strokeWidth={1.5} />
                   </div>
                   <div className="flex flex-col gap-4">

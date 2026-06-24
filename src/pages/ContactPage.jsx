@@ -3,7 +3,7 @@ import { useTheme } from "../contexts/ThemeContext";
 import { Reveal } from "../components/ui/Reveal";
 
 const inputBase =
-  "w-full bg-transparent border-0 border-b pb-3 pt-1 text-[14px] outline-none placeholder:text-[#6a7282] placeholder:text-[11px] placeholder:tracking-[0.8px] placeholder:uppercase transition-colors duration-200 focus:border-[#d1704d]";
+  "w-full bg-transparent border-0 border-b pb-3 pt-1 text-[14px] outline-none placeholder:text-[#6a7282] placeholder:text-[11px] placeholder:tracking-[0.8px] placeholder:uppercase transition-colors duration-200 focus:border-[#D97757]";
 
 export function ContactPage() {
   const { isDark } = useTheme();
@@ -14,8 +14,8 @@ export function ContactPage() {
   const [error, setError] = useState(false);
 
   const inputColor = isDark
-    ? "border-[#4a5565] text-[#d1d5dc] focus:border-[#d1704d]"
-    : "border-gray-300 text-[#1a2332] focus:border-[#d1704d]";
+    ? "border-[#4a5565] text-[#d1d5dc] focus:border-[#D97757]"
+    : "border-gray-300 text-[#1a2332] focus:border-[#D97757]";
 
   const onChange = (e) => {
     if (e.target.name === "email") setEmailError("");
@@ -66,7 +66,7 @@ export function ContactPage() {
     <div className={isDark ? "bg-[#0a1f2e]" : "bg-white"}>
       <section className="max-w-[1280px] mx-auto px-8 pt-20 pb-8">
         <Reveal delay={0}>
-          <p className="text-[#d1704d] text-[11px] tracking-[2.4px] uppercase font-semibold mb-8">
+          <p className="text-[#D97757] text-[11px] tracking-[2.4px] uppercase font-semibold mb-8">
             Get in Touch
           </p>
         </Reveal>
@@ -110,16 +110,16 @@ export function ContactPage() {
                 ].map(({ label, value, href }) => (
                   <div
                     key={label}
-                    className={`border-l-[3px] border-l-[#d1704d] pl-5 py-5 ${isDark ? "border-b border-b-white/5" : "border-b border-b-gray-100"
+                    className={`border-l-[3px] border-l-[#D97757] pl-5 py-5 ${isDark ? "border-b border-b-white/5" : "border-b border-b-gray-100"
                       }`}
                   >
-                    <p className="text-[#d1704d] text-[10px] tracking-[1.4px] uppercase font-semibold mb-2">
+                    <p className="text-[#D97757] text-[10px] tracking-[1.4px] uppercase font-semibold mb-2">
                       {label}
                     </p>
                     {href ? (
                       <a
                         href={href}
-                        className={`text-[15px] hover:text-[#d1704d] transition-colors duration-200 ${isDark ? "text-[#d1d5dc]" : "text-[#1a2332]"
+                        className={`text-[15px] hover:text-[#D97757] transition-colors duration-200 ${isDark ? "text-[#d1d5dc]" : "text-[#1a2332]"
                           }`}
                       >
                         {value}
@@ -152,7 +152,7 @@ export function ContactPage() {
                       {day}
                     </span>
                     <span
-                      className={`text-[14px] font-medium ${hours === "Closed" ? "text-[#d1704d]" : isDark ? "text-[#d1d5dc]" : "text-[#1a2332]"
+                      className={`text-[14px] font-medium ${hours === "Closed" ? "text-[#D97757]" : isDark ? "text-[#d1d5dc]" : "text-[#1a2332]"
                         }`}
                     >
                       {hours}
@@ -166,7 +166,7 @@ export function ContactPage() {
           <Reveal direction="right" delay={0.1}>
             <div
               className={`p-10 border ${isDark
-                ? "bg-[#0b2b3d] border-[rgba(209,112,77,0.15)]"
+                ? "bg-[#0b2b3d] border-[rgba(217, 119, 87,0.15)]"
                 : "bg-white border-gray-200 shadow-sm"
                 }`}
             >
@@ -178,7 +178,7 @@ export function ContactPage() {
               </h2>
 
               {sent && (
-                <div className="mb-6 px-5 py-4 bg-[#d1704d]/10 border border-[#d1704d]/30 text-[#d1704d] text-[13px] tracking-[0.3px]">
+                <div className="mb-6 px-5 py-4 bg-[#D97757]/10 border border-[#D97757]/30 text-[#D97757] text-[13px] tracking-[0.3px]">
                   Message sent successfully. We'll be in touch soon.
                 </div>
               )}
@@ -239,7 +239,7 @@ export function ContactPage() {
                   type="submit"
                   disabled={isSubmitting}
                   className={`w-full py-4 text-[12px] tracking-[1.4px] uppercase font-bold transition-all duration-300 border-2 ${isDark
-                    ? "border-[#d1704d] text-[#d1704d] hover:bg-[#d1704d]/10 disabled:opacity-50 disabled:cursor-not-allowed"
+                    ? "border-[#D97757] text-[#D97757] hover:bg-[#D97757]/10 disabled:opacity-50 disabled:cursor-not-allowed"
                     : "border-[#0a1f2e] text-[#0a1f2e] hover:bg-[#0a1f2e]/5 disabled:opacity-50 disabled:cursor-not-allowed"
                     }`}
                 >

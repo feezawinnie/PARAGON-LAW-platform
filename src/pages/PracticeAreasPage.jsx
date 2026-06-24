@@ -55,7 +55,7 @@ export function PracticeAreasPage() {
     <div style={{ backgroundColor: pageBg }}>
       <div className="max-w-[1280px] mx-auto px-8 pt-20 pb-14">
         <Reveal delay={0}>
-          <p className="text-[#d1704d] text-[11px] tracking-[2.4px] uppercase font-semibold mb-6">
+          <p className="text-[#D97757] text-[11px] tracking-[2.4px] uppercase font-semibold mb-6">
             Our Expertise
           </p>
         </Reveal>
@@ -88,7 +88,7 @@ export function PracticeAreasPage() {
                   onMouseLeave={e => e.currentTarget.style.backgroundColor = "transparent"}
                 >
                   <div className="flex flex-col gap-4">
-                    <div className={`${iconCl} transition-colors duration-200 group-hover:text-[#d1704d]`}>
+                    <div className={`${iconCl} transition-colors duration-200 group-hover:text-[#D97757]`}>
                       <Icon size={24} strokeWidth={1.4} />
                     </div>
                   </div>
@@ -112,7 +112,7 @@ export function PracticeAreasPage() {
       <section className={isDark ? "bg-[#0a1f2e]" : "bg-white"}>
         <div className="max-w-[1280px] mx-auto px-8 py-24 flex flex-col items-center text-center gap-6">
           <Reveal delay={0}>
-            <p className="text-[#d1704d] text-[11px] tracking-[2.4px] uppercase font-semibold">
+            <p className="text-[#D97757] text-[11px] tracking-[2.4px] uppercase font-semibold">
               Ready to discuss your legal needs?
             </p>
           </Reveal>

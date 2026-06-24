@@ -8,10 +8,10 @@
 
   --color-navy: #0a1f2e;
   --color-navy-deep: #0b2b3d;
-  --color-accent: #d1704d;
-  --color-accent-hover: #b85c39;
-  --color-accent-light: rgba(209, 112, 77, 0.15);
-  --color-accent-border: rgba(209, 112, 77, 0.2);
+  --color-accent: #D97757;
+  --color-accent-hover: #C05C3A;
+  --color-accent-light: rgba(217, 119, 87, 0.15);
+  --color-accent-border: rgba(217, 119, 87, 0.2);
 }
 
 *,

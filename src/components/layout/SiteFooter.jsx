@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useTheme } from "../../contexts/ThemeContext";
-import logoLight from "../../assets/PL LOGO MAIN.svg";
-import logoDark from "../../assets/PL LOGO MAIN-dark.svg";
+import logoLight from "../../assets/PL LOGO MAIN-2.svg";
+import logoDark from "../../assets/PL LOGO MAIN-dark-2.svg";
 
 const practiceAreas = [
   "Corporate & Commercial",
@@ -25,7 +25,7 @@ export function SiteFooter() {
   const footerBg = isDark ? "bg-[#0b2b3d]" : "bg-[#f8f7f5]";
   const textColor = isDark ? "text-[#d1d5dc]" : "text-[#4b5563]";
   const headingColor = isDark ? "text-[#6a7282]" : "text-[#6a7282]"; // Sub-labels stay muted
-  const linkHoverColor = "hover:text-[#d1704d]";
+  const linkHoverColor = "hover:text-[#D97757]";
   const logo = isDark ? logoDark : logoLight;
   const bottomBorder = isDark ? "border-[#4a5565]/40" : "border-gray-200";
   const watermarkColor = isDark ? "text-white" : "text-[#0a1f2e]";

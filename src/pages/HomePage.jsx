@@ -41,7 +41,7 @@ export function HomePage() {
         <div className="relative z-10 w-full max-w-[1280px] mx-auto px-8 py-24">
           <div className="max-w-[700px]">
             <Reveal delay={0}>
-              <p className="text-[#d1704d] text-[11px] tracking-[2.4px] uppercase font-semibold mb-10">
+              <p className="text-[#D97757] text-[11px] tracking-[2.4px] uppercase font-semibold mb-10">
                 Paragon Law — Kigali, Rwanda
               </p>
             </Reveal>
@@ -56,7 +56,7 @@ export function HomePage() {
                   Welcome to
                 </span>
                 <span
-                  className="font-hero font-bold whitespace-nowrap text-[#d1704d]"
+                  className="font-hero font-bold whitespace-nowrap text-[#D97757]"
                   style={{ fontSize: "clamp(40px, 9vw, 90px)", letterSpacing: "-2px" }}
                 >
                   PARAGON LAW
@@ -96,12 +96,12 @@ export function HomePage() {
       </section>
 
       <section
-        className={`relative border-t border-[#d1704d] ${isDark ? "bg-[#0a1f2e]" : "bg-[#f8f7f5]"
+        className={`relative border-t border-[#D97757] ${isDark ? "bg-[#0a1f2e]" : "bg-[#f8f7f5]"
           }`}
       >
         <div className="max-w-[1280px] mx-auto px-8 pt-24 pb-28">
           <Reveal delay={0}>
-            <p className="text-[#d1704d] text-[11px] tracking-[2.4px] uppercase font-semibold mb-5">
+            <p className="text-[#D97757] text-[11px] tracking-[2.4px] uppercase font-semibold mb-5">
               Our Expertise
             </p>
           </Reveal>
@@ -113,7 +113,7 @@ export function HomePage() {
             >
               Practice Areas
             </h2>
-            <div className="w-24 h-[4px] bg-[#d1704d] mb-16" />
+            <div className="w-24 h-[4px] bg-[#D97757] mb-16" />
           </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-[1px]">
@@ -122,14 +122,14 @@ export function HomePage() {
                 <Link
                   to="/practice-areas"
                   className={`group flex items-center gap-4 px-8 py-8 border transition-all duration-200 ${isDark
-                    ? "bg-[#0b2b3d] border-[rgba(209,112,77,0.2)] hover:border-[#d1704d] hover:bg-[#0d3347]"
-                    : "bg-white border-gray-200 hover:border-[#d1704d] hover:shadow-sm"
+                    ? "bg-[#0b2b3d] border-[rgba(217, 119, 87,0.2)] hover:border-[#D97757] hover:bg-[#0d3347]"
+                    : "bg-white border-gray-200 hover:border-[#D97757] hover:shadow-sm"
                     }`}
                 >
                   <span
                     className={`text-[13px] font-medium tracking-[0.26px] transition-colors duration-200 ${isDark
                       ? "text-[#d1d5dc] group-hover:text-white"
-                      : "text-[#374151] group-hover:text-[#d1704d]"
+                      : "text-[#374151] group-hover:text-[#D97757]"
                       }`}
                   >
                     {name}
@@ -143,7 +143,7 @@ export function HomePage() {
             <div className="flex justify-center mt-16">
               <Link
                 to="/practice-areas"
-                className="inline-flex items-center border-2 border-[#d1704d] text-[#d1704d] px-14 py-4 text-[13px] tracking-[1.4px] uppercase font-bold hover:bg-[#d1704d] hover:text-white transition-all duration-200"
+                className="inline-flex items-center border-2 border-[#D97757] text-[#D97757] px-14 py-4 text-[13px] tracking-[1.4px] uppercase font-bold hover:bg-[#D97757] hover:text-white transition-all duration-200"
               >
                 View Practice Areas
               </Link>
